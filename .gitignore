@@ -27,3 +27,9 @@ pnpm-debug.log*
 resources/ref_*.png
 resources/ref_*.txt
 resources/preview_*.png
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
