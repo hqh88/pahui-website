@@ -51,6 +51,32 @@ const related = collection.products
         <p class="text-text-light mb-2 capitalize">Category: {product.category.replace(/-/g, ' ')}</p>
         <p class="text-text-light mb-2">SKU: {product.id}</p>
 
+        <!-- Size Info -->
+        {product.size && (
+          <div class="mt-4 p-4 bg-bg-alt rounded-lg">
+            <h3 class="text-sm font-semibold mb-2">Dimensions</h3>
+            <p class="text-text-light text-sm">
+              {product.size.includes('/') ? (
+                <span>
+                  {product.size.split(' / ').map((s: string, i: number) => (
+                    <span class="block">{s.replace(/\*/g, ' × ')}</span>
+                  ))}
+                </span>
+              ) : (
+                <span>{product.size.replace(/\*/g, ' × ')}</span>
+              )}
+            </p>
+            {product.customizable && (
+              <p class="text-primary text-xs mt-2 font-medium">Size can be customized</p>
+            )}
+          </div>
+        )}
+        {!product.size && product.customizable && (
+          <div class="mt-4 p-4 bg-bg-alt rounded-lg">
+            <p class="text-primary text-sm font-medium">Size can be customized</p>
+          </div>
+        )}
+
         <div class="border-t border-border my-6 pt-6">
           <p class="text-text-light leading-relaxed mb-6">
             This premium furniture piece is crafted with attention to detail and quality materials.
@@ -77,6 +103,8 @@ const related = collection.products
               name={p.name}
               image={p.image}
               category={p.category}
+              size={p.size}
+              customizable={p.customizable}
             />
           ))}
         </div>

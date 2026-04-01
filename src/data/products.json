@@ -6,23 +6,141 @@
       "slug": "sofas",
       "image": "/images/hero/hero-4.jpg",
       "products": [
-        { "id": "PHS-1001", "name": "PHS-1001 Sofa", "image": "/images/sofas/1.PHS-1001.jpg", "category": "sofas" },
-        { "id": "PHS-1002", "name": "PHS-1002 Sofa", "image": "/images/sofas/2.PHS-1002.jpg", "category": "sofas" },
-        { "id": "PHS-1003", "name": "PHS-1003 Sofa", "image": "/images/sofas/3.PHS-1003.jpg", "category": "sofas" },
-        { "id": "PHS-1004", "name": "PHS-1004 Sofa", "image": "/images/sofas/4.PHS-1004.jpg", "category": "sofas" },
-        { "id": "PHS-1005", "name": "PHS-1005 Sofa", "image": "/images/sofas/5.PHS-1005.jpg", "category": "sofas" },
-        { "id": "PHS-1006", "name": "PHS-1006 Sofa", "image": "/images/sofas/6.PHS-1006.jpg", "category": "sofas" },
-        { "id": "PHS-1007", "name": "PHS-1007 Sofa", "image": "/images/sofas/7.PHS-1007.jpg", "category": "sofas" },
-        { "id": "PHS-1008", "name": "PHS-1008 Sofa", "image": "/images/sofas/8.PHS-1008.jpg", "category": "sofas" },
-        { "id": "PHS-1009", "name": "PHS-1009 Sofa", "image": "/images/sofas/9.PHS-1009.jpg", "category": "sofas" },
-        { "id": "PHS-1010", "name": "PHS-1010 Sofa", "image": "/images/sofas/10.PHS-1010.jpg", "category": "sofas" },
-        { "id": "PHS-1011", "name": "PHS-1011 Sofa", "image": "/images/sofas/11.PHS-1011.jpg", "category": "sofas" },
-        { "id": "PHS-1012", "name": "PHS-1012 Sofa", "image": "/images/sofas/12.PHS-1012.png", "category": "sofas" },
-        { "id": "PHS-1013", "name": "PHS-1013 Sofa", "image": "/images/sofas/13.PHS-1013.jpg", "category": "sofas" },
-        { "id": "PHS-1014", "name": "PHS-1014 Sofa", "image": "/images/sofas/14.PHS-1014.jpg", "category": "sofas" },
-        { "id": "PHS-1015", "name": "PHS-1015 Sofa", "image": "/images/sofas/15.PHS-1015.png", "category": "sofas" },
-        { "id": "PHS-1016", "name": "PHS-1016 Sofa", "image": "/images/sofas/16.PHS-1016.png", "category": "sofas" },
-        { "id": "PHS-1017", "name": "PHS-1017 Sofa", "image": "/images/sofas/17.PHS-1017.jpg", "category": "sofas" }
+        {
+          "id": "PHS-1001",
+          "name": "PHS-1001 Sofa",
+          "image": "/images/sofas/1.PHS-1001.jpg",
+          "category": "sofas",
+          "size": "306*105*65cm",
+          "customizable": true
+        },
+        {
+          "id": "PHS-1002",
+          "name": "PHS-1002 Sofa",
+          "image": "/images/sofas/2.PHS-1002.jpg",
+          "category": "sofas",
+          "size": "355*101*65cm",
+          "customizable": true
+        },
+        {
+          "id": "PHS-1003",
+          "name": "PHS-1003 Sofa",
+          "image": "/images/sofas/3.PHS-1003.jpg",
+          "category": "sofas",
+          "size": "420*168*89cm",
+          "customizable": true
+        },
+        {
+          "id": "PHS-1004",
+          "name": "PHS-1004 Sofa",
+          "image": "/images/sofas/4.PHS-1004.jpg",
+          "category": "sofas",
+          "size": "388*103*90",
+          "customizable": true
+        },
+        {
+          "id": "PHS-1005",
+          "name": "PHS-1005 Sofa",
+          "image": "/images/sofas/5.PHS-1005.jpg",
+          "category": "sofas",
+          "size": "360*100*65cm",
+          "customizable": true
+        },
+        {
+          "id": "PHS-1006",
+          "name": "PHS-1006 Sofa",
+          "image": "/images/sofas/6.PHS-1006.jpg",
+          "category": "sofas",
+          "size": "340*90*70cm",
+          "customizable": true
+        },
+        {
+          "id": "PHS-1007",
+          "name": "PHS-1007 Sofa",
+          "image": "/images/sofas/7.PHS-1007.jpg",
+          "category": "sofas",
+          "size": "378*166*77cm",
+          "customizable": true
+        },
+        {
+          "id": "PHS-1008",
+          "name": "PHS-1008 Sofa",
+          "image": "/images/sofas/8.PHS-1008.jpg",
+          "category": "sofas",
+          "size": "310*108*89cm",
+          "customizable": true
+        },
+        {
+          "id": "PHS-1009",
+          "name": "PHS-1009 Sofa",
+          "image": "/images/sofas/9.PHS-1009.jpg",
+          "category": "sofas",
+          "size": "300*105*75cm",
+          "customizable": true
+        },
+        {
+          "id": "PHS-1010",
+          "name": "PHS-1010 Sofa",
+          "image": "/images/sofas/10.PHS-1010.jpg",
+          "category": "sofas",
+          "size": "280*90*80cm",
+          "customizable": true
+        },
+        {
+          "id": "PHS-1011",
+          "name": "PHS-1011 Sofa",
+          "image": "/images/sofas/11.PHS-1011.jpg",
+          "category": "sofas",
+          "size": "286*96*70cm",
+          "customizable": true
+        },
+        {
+          "id": "PHS-1012",
+          "name": "PHS-1012 Sofa",
+          "image": "/images/sofas/12.PHS-1012.png",
+          "category": "sofas",
+          "customizable": true
+        },
+        {
+          "id": "PHS-1013",
+          "name": "PHS-1013 Sofa",
+          "image": "/images/sofas/13.PHS-1013.jpg",
+          "category": "sofas",
+          "size": "384*162*67cm",
+          "customizable": true
+        },
+        {
+          "id": "PHS-1014",
+          "name": "PHS-1014 Sofa",
+          "image": "/images/sofas/14.PHS-1014.jpg",
+          "category": "sofas",
+          "size": "300*102*62cm",
+          "customizable": true
+        },
+        {
+          "id": "PHS-1015",
+          "name": "PHS-1015 Sofa",
+          "image": "/images/sofas/15.PHS-1015.png",
+          "category": "sofas",
+          "size": "372*141*79cm",
+          "customizable": true
+        },
+        {
+          "id": "PHS-1016",
+          "name": "PHS-1016 Sofa",
+          "image": "/images/sofas/16.PHS-1016.png",
+          "category": "sofas",
+          "size": "255*8150*80cm",
+          "customizable": true
+        },
+        {
+          "id": "PHS-1017",
+          "name": "PHS-1017 Sofa",
+          "image": "/images/sofas/17.PHS-1017.jpg",
+          "category": "sofas",
+          "size": "218*96*72cm",
+          "customizable": true
+        }
       ]
     },
     {
@@ -31,16 +149,86 @@
       "slug": "arm-chairs",
       "image": "/images/hero/hero-5.jpg",
       "products": [
-        { "id": "PHAC-2001", "name": "PHAC-2001 Arm Chair", "image": "/images/arm-chairs/1.PHAC-2001.jpg", "category": "arm-chairs" },
-        { "id": "PHAC-2002", "name": "PHAC-2002 Arm Chair", "image": "/images/arm-chairs/2.PHAC-2002.jpg", "category": "arm-chairs" },
-        { "id": "PHAC-2003", "name": "PHAC-2003 Arm Chair", "image": "/images/arm-chairs/3.PHAC-2003.jpg", "category": "arm-chairs" },
-        { "id": "PHAC-2004", "name": "PHAC-2004 Arm Chair", "image": "/images/arm-chairs/4.PHAC-2004.jpg", "category": "arm-chairs" },
-        { "id": "PHAC-2005", "name": "PHAC-2005 Arm Chair", "image": "/images/arm-chairs/5.PHAC-2005.jpg", "category": "arm-chairs" },
-        { "id": "PHAC-2006", "name": "PHAC-2006 Arm Chair", "image": "/images/arm-chairs/6.PHAC-2006.jpg", "category": "arm-chairs" },
-        { "id": "PHAC-2007", "name": "PHAC-2007 Arm Chair", "image": "/images/arm-chairs/7.PHAC-2007.png", "category": "arm-chairs" },
-        { "id": "PHAC-2008", "name": "PHAC-2008 Arm Chair", "image": "/images/arm-chairs/8.PHAC-2008.jpg", "category": "arm-chairs" },
-        { "id": "PHAC-2009", "name": "PHAC-2009 Arm Chair", "image": "/images/arm-chairs/9.PHAC-2009.jpg", "category": "arm-chairs" },
-        { "id": "PHAC-2010", "name": "PHAC-2010 Arm Chair", "image": "/images/arm-chairs/10.PHAC-2010.png", "category": "arm-chairs" }
+        {
+          "id": "PHAC-2001",
+          "name": "PHAC-2001 Arm Chair",
+          "image": "/images/arm-chairs/1.PHAC-2001.jpg",
+          "category": "arm-chairs",
+          "size": "Standard",
+          "customizable": false
+        },
+        {
+          "id": "PHAC-2002",
+          "name": "PHAC-2002 Arm Chair",
+          "image": "/images/arm-chairs/2.PHAC-2002.jpg",
+          "category": "arm-chairs",
+          "size": "Standard",
+          "customizable": false
+        },
+        {
+          "id": "PHAC-2003",
+          "name": "PHAC-2003 Arm Chair",
+          "image": "/images/arm-chairs/3.PHAC-2003.jpg",
+          "category": "arm-chairs",
+          "size": "Standard",
+          "customizable": false
+        },
+        {
+          "id": "PHAC-2004",
+          "name": "PHAC-2004 Arm Chair",
+          "image": "/images/arm-chairs/4.PHAC-2004.jpg",
+          "category": "arm-chairs",
+          "size": "Standard",
+          "customizable": false
+        },
+        {
+          "id": "PHAC-2005",
+          "name": "PHAC-2005 Arm Chair",
+          "image": "/images/arm-chairs/5.PHAC-2005.jpg",
+          "category": "arm-chairs",
+          "size": "Standard",
+          "customizable": false
+        },
+        {
+          "id": "PHAC-2006",
+          "name": "PHAC-2006 Arm Chair",
+          "image": "/images/arm-chairs/6.PHAC-2006.jpg",
+          "category": "arm-chairs",
+          "size": "Standard",
+          "customizable": false
+        },
+        {
+          "id": "PHAC-2007",
+          "name": "PHAC-2007 Arm Chair",
+          "image": "/images/arm-chairs/7.PHAC-2007.png",
+          "category": "arm-chairs",
+          "size": "Standard",
+          "customizable": false
+        },
+        {
+          "id": "PHAC-2008",
+          "name": "PHAC-2008 Arm Chair",
+          "image": "/images/arm-chairs/8.PHAC-2008.jpg",
+          "category": "arm-chairs",
+          "size": "Standard",
+          "customizable": false
+        },
+        {
+          "id": "PHAC-2009",
+          "name": "PHAC-2009 Arm Chair",
+          "image": "/images/arm-chairs/9.PHAC-2009.jpg",
+          "category": "arm-chairs",
+          "size": "Standard",
+          "customizable": false
+        },
+        {
+          "id": "PHAC-2010",
+          "name": "PHAC-2010 Arm Chair",
+          "image": "/images/arm-chairs/10.PHAC-2010.png",
+          "category": "arm-chairs",
+          "size": "Standard",
+          "customizable": false
+        }
       ]
     },
     {
@@ -49,12 +237,54 @@
       "slug": "coffee-tables",
       "image": "/images/coffee-tables/1.PHCT-3001.jpg",
       "products": [
-        { "id": "PHCT-3001", "name": "PHCT-3001 Coffee Table", "image": "/images/coffee-tables/1.PHCT-3001.jpg", "category": "coffee-tables" },
-        { "id": "PHCT-3002", "name": "PHCT-3002 Coffee Table", "image": "/images/coffee-tables/2.PHCT-3002.png", "category": "coffee-tables" },
-        { "id": "PHCT-3003", "name": "PHCT-3003 Coffee Table", "image": "/images/coffee-tables/3.PHCT-3003.jpg", "category": "coffee-tables" },
-        { "id": "PHCT-3004", "name": "PHCT-3004 Coffee Table", "image": "/images/coffee-tables/4.PHCT-3004.jpg", "category": "coffee-tables" },
-        { "id": "PHCT-3005", "name": "PHCT-3005 Coffee Table", "image": "/images/coffee-tables/5.PHCT-3005.jpg", "category": "coffee-tables" },
-        { "id": "PHCT-3006", "name": "PHCT-3006 Coffee Table", "image": "/images/coffee-tables/6.PHCT-3006.png", "category": "coffee-tables" }
+        {
+          "id": "PHCT-3001",
+          "name": "PHCT-3001 Coffee Table",
+          "image": "/images/coffee-tables/1.PHCT-3001.jpg",
+          "category": "coffee-tables",
+          "size": "45*45*50cm / 60*60*50cm / 60*60*40cm",
+          "customizable": false
+        },
+        {
+          "id": "PHCT-3002",
+          "name": "PHCT-3002 Coffee Table",
+          "image": "/images/coffee-tables/2.PHCT-3002.png",
+          "category": "coffee-tables",
+          "size": "100*100*30cm",
+          "customizable": false
+        },
+        {
+          "id": "PHCT-3003",
+          "name": "PHCT-3003 Coffee Table",
+          "image": "/images/coffee-tables/3.PHCT-3003.jpg",
+          "category": "coffee-tables",
+          "size": "120*65*32cm / 65*40*52cm",
+          "customizable": false
+        },
+        {
+          "id": "PHCT-3004",
+          "name": "PHCT-3004 Coffee Table",
+          "image": "/images/coffee-tables/4.PHCT-3004.jpg",
+          "category": "coffee-tables",
+          "size": "100*110*36cm",
+          "customizable": false
+        },
+        {
+          "id": "PHCT-3005",
+          "name": "PHCT-3005 Coffee Table",
+          "image": "/images/coffee-tables/5.PHCT-3005.jpg",
+          "category": "coffee-tables",
+          "size": "100*100*28cm / 58*58*44cm",
+          "customizable": false
+        },
+        {
+          "id": "PHCT-3006",
+          "name": "PHCT-3006 Coffee Table",
+          "image": "/images/coffee-tables/6.PHCT-3006.png",
+          "category": "coffee-tables",
+          "size": "110*110*33cm",
+          "customizable": false
+        }
       ]
     },
     {
@@ -63,13 +293,62 @@
       "slug": "dining-tables",
       "image": "/images/dining-tables/1.PHDT-4001.jpg",
       "products": [
-        { "id": "PHDT-4001", "name": "PHDT-4001 Dining Table", "image": "/images/dining-tables/1.PHDT-4001.jpg", "category": "dining-tables" },
-        { "id": "PHDT-4002", "name": "PHDT-4002 Dining Table", "image": "/images/dining-tables/2.PHDT-4002.jpg", "category": "dining-tables" },
-        { "id": "PHDT-4003", "name": "PHDT-4003 Dining Table", "image": "/images/dining-tables/3.PHDT-4003.png", "category": "dining-tables" },
-        { "id": "PHDT-4004", "name": "PHDT-4004 Dining Table", "image": "/images/dining-tables/4.PHDT-4004.jpg", "category": "dining-tables" },
-        { "id": "PHDT-4005", "name": "PHDT-4005 Dining Table", "image": "/images/dining-tables/5.PHDT-4005.png", "category": "dining-tables" },
-        { "id": "PHDT-4006", "name": "PHDT-4006 Dining Table", "image": "/images/dining-tables/6.PHDT-4006.jpg", "category": "dining-tables" },
-        { "id": "PHDT-4007", "name": "PHDT-4007 Dining Table", "image": "/images/dining-tables/7.PHDT-4007.jpg", "category": "dining-tables" }
+        {
+          "id": "PHDT-4001",
+          "name": "PHDT-4001 Dining Table",
+          "image": "/images/dining-tables/1.PHDT-4001.jpg",
+          "category": "dining-tables",
+          "size": "240*110*75cm",
+          "customizable": false
+        },
+        {
+          "id": "PHDT-4002",
+          "name": "PHDT-4002 Dining Table",
+          "image": "/images/dining-tables/2.PHDT-4002.jpg",
+          "category": "dining-tables",
+          "size": "240*108*74cm",
+          "customizable": false
+        },
+        {
+          "id": "PHDT-4003",
+          "name": "PHDT-4003 Dining Table",
+          "image": "/images/dining-tables/3.PHDT-4003.png",
+          "category": "dining-tables",
+          "size": "300*135*75cm",
+          "customizable": false
+        },
+        {
+          "id": "PHDT-4004",
+          "name": "PHDT-4004 Dining Table",
+          "image": "/images/dining-tables/4.PHDT-4004.jpg",
+          "category": "dining-tables",
+          "size": "200*95*75cm",
+          "customizable": false
+        },
+        {
+          "id": "PHDT-4005",
+          "name": "PHDT-4005 Dining Table",
+          "image": "/images/dining-tables/5.PHDT-4005.png",
+          "category": "dining-tables",
+          "size": "200*100*75cm",
+          "customizable": false
+        },
+        {
+          "id": "PHDT-4006",
+          "name": "PHDT-4006 Dining Table",
+          "image": "/images/dining-tables/6.PHDT-4006.jpg",
+          "category": "dining-tables",
+          "size": "220*120*74cm",
+          "customizable": false
+        },
+        {
+          "id": "PHDT-4007",
+          "name": "PHDT-4007 Dining Table",
+          "image": "/images/dining-tables/7.PHDT-4007.jpg",
+          "category": "dining-tables",
+          "size": "240*120*72cm",
+          "customizable": false
+        }
       ]
     },
     {
@@ -78,20 +357,118 @@
       "slug": "dining-chairs",
       "image": "/images/dining-chairs/1.PHDC-5001.jpg",
       "products": [
-        { "id": "PHDC-5001", "name": "PHDC-5001 Dining Chair", "image": "/images/dining-chairs/1.PHDC-5001.jpg", "category": "dining-chairs" },
-        { "id": "PHDC-5002", "name": "PHDC-5002 Dining Chair", "image": "/images/dining-chairs/2.PHDC-5002.jpg", "category": "dining-chairs" },
-        { "id": "PHDC-5003", "name": "PHDC-5003 Dining Chair", "image": "/images/dining-chairs/3.PHDC-5003.jpg", "category": "dining-chairs" },
-        { "id": "PHDC-5004", "name": "PHDC-5004 Dining Chair", "image": "/images/dining-chairs/4.PHDC-5004.jpg", "category": "dining-chairs" },
-        { "id": "PHDC-5005", "name": "PHDC-5005 Dining Chair", "image": "/images/dining-chairs/5.PHDC-5005.jpg", "category": "dining-chairs" },
-        { "id": "PHDC-5006", "name": "PHDC-5006 Dining Chair", "image": "/images/dining-chairs/6.PHDC-5006.jpg", "category": "dining-chairs" },
-        { "id": "PHDC-5007", "name": "PHDC-5007 Dining Chair", "image": "/images/dining-chairs/7.PHDC-5007.jpg", "category": "dining-chairs" },
-        { "id": "PHDC-5008", "name": "PHDC-5008 Dining Chair", "image": "/images/dining-chairs/8.PHDC-5008.jpg", "category": "dining-chairs" },
-        { "id": "PHDC-5009", "name": "PHDC-5009 Dining Chair", "image": "/images/dining-chairs/9.PHDC-5009.jpg", "category": "dining-chairs" },
-        { "id": "PHDC-5010", "name": "PHDC-5010 Dining Chair", "image": "/images/dining-chairs/10,PHDC-5010.jpg", "category": "dining-chairs" },
-        { "id": "PHDC-5011", "name": "PHDC-5011 Dining Chair", "image": "/images/dining-chairs/11.PHDC-5011.jpg", "category": "dining-chairs" },
-        { "id": "PHDC-5012", "name": "PHDC-5012 Dining Chair", "image": "/images/dining-chairs/12.PHDC-5012.png", "category": "dining-chairs" },
-        { "id": "PHDC-5013", "name": "PHDC-5013 Dining Chair", "image": "/images/dining-chairs/13.PHDC-5013.jpg", "category": "dining-chairs" },
-        { "id": "PHDC-5014", "name": "PHDC-5014 Dining Chair", "image": "/images/dining-chairs/14.PHDC-5014.png", "category": "dining-chairs" }
+        {
+          "id": "PHDC-5001",
+          "name": "PHDC-5001 Dining Chair",
+          "image": "/images/dining-chairs/1.PHDC-5001.jpg",
+          "category": "dining-chairs",
+          "size": "Standard",
+          "customizable": false
+        },
+        {
+          "id": "PHDC-5002",
+          "name": "PHDC-5002 Dining Chair",
+          "image": "/images/dining-chairs/2.PHDC-5002.jpg",
+          "category": "dining-chairs",
+          "size": "Standard",
+          "customizable": false
+        },
+        {
+          "id": "PHDC-5003",
+          "name": "PHDC-5003 Dining Chair",
+          "image": "/images/dining-chairs/3.PHDC-5003.jpg",
+          "category": "dining-chairs",
+          "size": "Standard",
+          "customizable": false
+        },
+        {
+          "id": "PHDC-5004",
+          "name": "PHDC-5004 Dining Chair",
+          "image": "/images/dining-chairs/4.PHDC-5004.jpg",
+          "category": "dining-chairs",
+          "size": "Standard",
+          "customizable": false
+        },
+        {
+          "id": "PHDC-5005",
+          "name": "PHDC-5005 Dining Chair",
+          "image": "/images/dining-chairs/5.PHDC-5005.jpg",
+          "category": "dining-chairs",
+          "size": "Standard",
+          "customizable": false
+        },
+        {
+          "id": "PHDC-5006",
+          "name": "PHDC-5006 Dining Chair",
+          "image": "/images/dining-chairs/6.PHDC-5006.jpg",
+          "category": "dining-chairs",
+          "size": "Standard",
+          "customizable": false
+        },
+        {
+          "id": "PHDC-5007",
+          "name": "PHDC-5007 Dining Chair",
+          "image": "/images/dining-chairs/7.PHDC-5007.jpg",
+          "category": "dining-chairs",
+          "size": "Standard",
+          "customizable": false
+        },
+        {
+          "id": "PHDC-5008",
+          "name": "PHDC-5008 Dining Chair",
+          "image": "/images/dining-chairs/8.PHDC-5008.jpg",
+          "category": "dining-chairs",
+          "size": "Standard",
+          "customizable": false
+        },
+        {
+          "id": "PHDC-5009",
+          "name": "PHDC-5009 Dining Chair",
+          "image": "/images/dining-chairs/9.PHDC-5009.jpg",
+          "category": "dining-chairs",
+          "size": "Standard",
+          "customizable": false
+        },
+        {
+          "id": "PHDC-5010",
+          "name": "PHDC-5010 Dining Chair",
+          "image": "/images/dining-chairs/10,PHDC-5010.jpg",
+          "category": "dining-chairs",
+          "size": "Standard",
+          "customizable": false
+        },
+        {
+          "id": "PHDC-5011",
+          "name": "PHDC-5011 Dining Chair",
+          "image": "/images/dining-chairs/11.PHDC-5011.jpg",
+          "category": "dining-chairs",
+          "size": "Standard",
+          "customizable": false
+        },
+        {
+          "id": "PHDC-5012",
+          "name": "PHDC-5012 Dining Chair",
+          "image": "/images/dining-chairs/12.PHDC-5012.png",
+          "category": "dining-chairs",
+          "size": "Standard",
+          "customizable": false
+        },
+        {
+          "id": "PHDC-5013",
+          "name": "PHDC-5013 Dining Chair",
+          "image": "/images/dining-chairs/13.PHDC-5013.jpg",
+          "category": "dining-chairs",
+          "size": "Standard",
+          "customizable": false
+        },
+        {
+          "id": "PHDC-5014",
+          "name": "PHDC-5014 Dining Chair",
+          "image": "/images/dining-chairs/14.PHDC-5014.png",
+          "category": "dining-chairs",
+          "size": "Standard",
+          "customizable": false
+        }
       ]
     },
     {
@@ -100,21 +477,126 @@
       "slug": "beds",
       "image": "/images/beds/PHB-6001.jpg",
       "products": [
-        { "id": "PHB-6001", "name": "PHB-6001 Bed", "image": "/images/beds/PHB-6001.jpg", "category": "beds" },
-        { "id": "PHB-6002", "name": "PHB-6002 Bed", "image": "/images/beds/PHB-6002.jpg", "category": "beds" },
-        { "id": "PHB-6003", "name": "PHB-6003 Bed", "image": "/images/beds/PHB-6003.jpg", "category": "beds" },
-        { "id": "PHB-6004", "name": "PHB-6004 Bed", "image": "/images/beds/PHB-6004.jpg", "category": "beds" },
-        { "id": "PHB-6005", "name": "PHB-6005 Bed", "image": "/images/beds/PHB-6005.jpg", "category": "beds" },
-        { "id": "PHB-6006", "name": "PHB-6006 Bed", "image": "/images/beds/PHB-6006.jpg", "category": "beds" },
-        { "id": "PHB-6007", "name": "PHB-6007 Bed", "image": "/images/beds/PHB-6007.jpg", "category": "beds" },
-        { "id": "PHB-6008", "name": "PHB-6008 Bed", "image": "/images/beds/PHB-6008.jpg", "category": "beds" },
-        { "id": "PHB-6009", "name": "PHB-6009 Bed", "image": "/images/beds/PHB-6009.jpg", "category": "beds" },
-        { "id": "PHB-6010", "name": "PHB-6010 Bed", "image": "/images/beds/PHB-6010.png", "category": "beds" },
-        { "id": "PHB-6011", "name": "PHB-6011 Bed", "image": "/images/beds/PHB-6011.png", "category": "beds" },
-        { "id": "PHB-6012", "name": "PHB-6012 Bed", "image": "/images/beds/PHB-6012.jpg", "category": "beds" },
-        { "id": "PHB-6013", "name": "PHB-6013 Bed", "image": "/images/beds/PHB-6013.jpg", "category": "beds" },
-        { "id": "PHB-6014", "name": "PHB-6014 Bed", "image": "/images/beds/PHB-6014.jpg", "category": "beds" },
-        { "id": "PHB-6015", "name": "PHB-6015 Bed", "image": "/images/beds/PHB-6015.jpg", "category": "beds" }
+        {
+          "id": "PHB-6001",
+          "name": "PHB-6001 Bed",
+          "image": "/images/beds/PHB-6001.jpg",
+          "category": "beds",
+          "size": "228*185*95cm",
+          "customizable": false
+        },
+        {
+          "id": "PHB-6002",
+          "name": "PHB-6002 Bed",
+          "image": "/images/beds/PHB-6002.jpg",
+          "category": "beds",
+          "size": "226*222*105cm",
+          "customizable": false
+        },
+        {
+          "id": "PHB-6003",
+          "name": "PHB-6003 Bed",
+          "image": "/images/beds/PHB-6003.jpg",
+          "category": "beds",
+          "size": "384*223*105cm",
+          "customizable": false
+        },
+        {
+          "id": "PHB-6004",
+          "name": "PHB-6004 Bed",
+          "image": "/images/beds/PHB-6004.jpg",
+          "category": "beds",
+          "size": "204*243*78cm",
+          "customizable": false
+        },
+        {
+          "id": "PHB-6005",
+          "name": "PHB-6005 Bed",
+          "image": "/images/beds/PHB-6005.jpg",
+          "category": "beds",
+          "size": "231*241*113cm",
+          "customizable": false
+        },
+        {
+          "id": "PHB-6006",
+          "name": "PHB-6006 Bed",
+          "image": "/images/beds/PHB-6006.jpg",
+          "category": "beds",
+          "size": "215*210*116cm",
+          "customizable": false
+        },
+        {
+          "id": "PHB-6007",
+          "name": "PHB-6007 Bed",
+          "image": "/images/beds/PHB-6007.jpg",
+          "category": "beds",
+          "size": "2270184*96cm",
+          "customizable": false
+        },
+        {
+          "id": "PHB-6008",
+          "name": "PHB-6008 Bed",
+          "image": "/images/beds/PHB-6008.jpg",
+          "category": "beds",
+          "size": "256*226*90cm",
+          "customizable": false
+        },
+        {
+          "id": "PHB-6009",
+          "name": "PHB-6009 Bed",
+          "image": "/images/beds/PHB-6009.jpg",
+          "category": "beds",
+          "size": "234*202*103cm",
+          "customizable": false
+        },
+        {
+          "id": "PHB-6010",
+          "name": "PHB-6010 Bed",
+          "image": "/images/beds/PHB-6010.png",
+          "category": "beds",
+          "size": "240*206*93cm",
+          "customizable": false
+        },
+        {
+          "id": "PHB-6011",
+          "name": "PHB-6011 Bed",
+          "image": "/images/beds/PHB-6011.png",
+          "category": "beds",
+          "size": "240*188*108cm",
+          "customizable": false
+        },
+        {
+          "id": "PHB-6012",
+          "name": "PHB-6012 Bed",
+          "image": "/images/beds/PHB-6012.jpg",
+          "category": "beds",
+          "size": "249*205*82cm",
+          "customizable": false
+        },
+        {
+          "id": "PHB-6013",
+          "name": "PHB-6013 Bed",
+          "image": "/images/beds/PHB-6013.jpg",
+          "category": "beds",
+          "size": "212*207*101cm",
+          "customizable": false
+        },
+        {
+          "id": "PHB-6014",
+          "name": "PHB-6014 Bed",
+          "image": "/images/beds/PHB-6014.jpg",
+          "category": "beds",
+          "size": "248*245*105cm",
+          "customizable": false
+        },
+        {
+          "id": "PHB-6015",
+          "name": "PHB-6015 Bed",
+          "image": "/images/beds/PHB-6015.jpg",
+          "category": "beds",
+          "size": "225*205*128cm",
+          "customizable": false
+        }
       ]
     },
     {
@@ -123,20 +605,117 @@
       "slug": "bedside-tables",
       "image": "/images/bedside-tables/PHSC-7001.jpg",
       "products": [
-        { "id": "PHSC-7001", "name": "PHSC-7001 Bedside Table", "image": "/images/bedside-tables/PHSC-7001.jpg", "category": "bedside-tables" },
-        { "id": "PHSC-7002", "name": "PHSC-7002 Bedside Table", "image": "/images/bedside-tables/PHSC-7002.png", "category": "bedside-tables" },
-        { "id": "PHSC-7003", "name": "PHSC-7003 Bedside Table", "image": "/images/bedside-tables/PHSC-7003.png", "category": "bedside-tables" },
-        { "id": "PHSC-7004", "name": "PHSC-7004 Bedside Table", "image": "/images/bedside-tables/PHSC-7004.png", "category": "bedside-tables" },
-        { "id": "PHSC-7005", "name": "PHSC-7005 Bedside Table", "image": "/images/bedside-tables/PHSC-7005.jpg", "category": "bedside-tables" },
-        { "id": "PHSC-7006", "name": "PHSC-7006 Bedside Table", "image": "/images/bedside-tables/PHSC-7006.png", "category": "bedside-tables" },
-        { "id": "PHSC-7007", "name": "PHSC-7007 Bedside Table", "image": "/images/bedside-tables/PHSC-7007.jpg", "category": "bedside-tables" },
-        { "id": "PHSC-7008", "name": "PHSC-7008 Bedside Table", "image": "/images/bedside-tables/PHSC-7008.jpg", "category": "bedside-tables" },
-        { "id": "PHSC-7009", "name": "PHSC-7009 Bedside Table", "image": "/images/bedside-tables/PHSC-7009.jpg", "category": "bedside-tables" },
-        { "id": "PHSC-7010", "name": "PHSC-7010 Bedside Table", "image": "/images/bedside-tables/PHSC-7010.jpg", "category": "bedside-tables" },
-        { "id": "PHSC-7011", "name": "PHSC-7011 Bedside Table", "image": "/images/bedside-tables/PHSC-7011.png", "category": "bedside-tables" },
-        { "id": "PHSC-7012", "name": "PHSC-7012 Bedside Table", "image": "/images/bedside-tables/PHSC-7012.png", "category": "bedside-tables" },
-        { "id": "PHSC-7013", "name": "PHSC-7013 Bedside Table", "image": "/images/bedside-tables/PHSC-7013.jpg", "category": "bedside-tables" },
-        { "id": "PHSC-7014", "name": "PHSC-7014 Bedside Table", "image": "/images/bedside-tables/PHSC-7014.png", "category": "bedside-tables" }
+        {
+          "id": "PHSC-7001",
+          "name": "PHSC-7001 Bedside Table",
+          "image": "/images/bedside-tables/PHSC-7001.jpg",
+          "category": "bedside-tables",
+          "size": "50*42*52cm",
+          "customizable": false
+        },
+        {
+          "id": "PHSC-7002",
+          "name": "PHSC-7002 Bedside Table",
+          "image": "/images/bedside-tables/PHSC-7002.png",
+          "category": "bedside-tables",
+          "size": "50*50*45cm",
+          "customizable": false
+        },
+        {
+          "id": "PHSC-7003",
+          "name": "PHSC-7003 Bedside Table",
+          "image": "/images/bedside-tables/PHSC-7003.png",
+          "category": "bedside-tables",
+          "size": "50*40*42cm",
+          "customizable": false
+        },
+        {
+          "id": "PHSC-7004",
+          "name": "PHSC-7004 Bedside Table",
+          "image": "/images/bedside-tables/PHSC-7004.png",
+          "category": "bedside-tables",
+          "size": "50*45*50cm",
+          "customizable": false
+        },
+        {
+          "id": "PHSC-7005",
+          "name": "PHSC-7005 Bedside Table",
+          "image": "/images/bedside-tables/PHSC-7005.jpg",
+          "category": "bedside-tables",
+          "size": "50*41*52cm",
+          "customizable": false
+        },
+        {
+          "id": "PHSC-7006",
+          "name": "PHSC-7006 Bedside Table",
+          "image": "/images/bedside-tables/PHSC-7006.png",
+          "category": "bedside-tables",
+          "size": "55*45*50cm",
+          "customizable": false
+        },
+        {
+          "id": "PHSC-7007",
+          "name": "PHSC-7007 Bedside Table",
+          "image": "/images/bedside-tables/PHSC-7007.jpg",
+          "category": "bedside-tables",
+          "size": "48*48*46cm",
+          "customizable": false
+        },
+        {
+          "id": "PHSC-7008",
+          "name": "PHSC-7008 Bedside Table",
+          "image": "/images/bedside-tables/PHSC-7008.jpg",
+          "category": "bedside-tables",
+          "customizable": true
+        },
+        {
+          "id": "PHSC-7009",
+          "name": "PHSC-7009 Bedside Table",
+          "image": "/images/bedside-tables/PHSC-7009.jpg",
+          "category": "bedside-tables",
+          "size": "46*46*46cm",
+          "customizable": false
+        },
+        {
+          "id": "PHSC-7010",
+          "name": "PHSC-7010 Bedside Table",
+          "image": "/images/bedside-tables/PHSC-7010.jpg",
+          "category": "bedside-tables",
+          "size": "60*42*52cm",
+          "customizable": false
+        },
+        {
+          "id": "PHSC-7011",
+          "name": "PHSC-7011 Bedside Table",
+          "image": "/images/bedside-tables/PHSC-7011.png",
+          "category": "bedside-tables",
+          "size": "50*40*50cm",
+          "customizable": false
+        },
+        {
+          "id": "PHSC-7012",
+          "name": "PHSC-7012 Bedside Table",
+          "image": "/images/bedside-tables/PHSC-7012.png",
+          "category": "bedside-tables",
+          "size": "75*50*42.5cm",
+          "customizable": false
+        },
+        {
+          "id": "PHSC-7013",
+          "name": "PHSC-7013 Bedside Table",
+          "image": "/images/bedside-tables/PHSC-7013.jpg",
+          "category": "bedside-tables",
+          "size": "42*42*45cm",
+          "customizable": false
+        },
+        {
+          "id": "PHSC-7014",
+          "name": "PHSC-7014 Bedside Table",
+          "image": "/images/bedside-tables/PHSC-7014.png",
+          "category": "bedside-tables",
+          "size": "44*50*55cm",
+          "customizable": false
+        }
       ]
     },
     {
@@ -145,9 +724,30 @@
       "slug": "others",
       "image": "/images/others/PHO-8001.png",
       "products": [
-        { "id": "PHO-8001", "name": "PHO-8001", "image": "/images/others/PHO-8001.png", "category": "others" },
-        { "id": "PHO-8002", "name": "PHO-8002", "image": "/images/others/PHO-8002.jpg", "category": "others" },
-        { "id": "PHO-8003", "name": "PHO-8003", "image": "/images/others/PHO-8003.jpg", "category": "others" }
+        {
+          "id": "PHO-8001",
+          "name": "PHO-8001",
+          "image": "/images/others/PHO-8001.png",
+          "category": "others",
+          "size": "40*40*45cm / 48*48*42cm",
+          "customizable": false
+        },
+        {
+          "id": "PHO-8002",
+          "name": "PHO-8002",
+          "image": "/images/others/PHO-8002.jpg",
+          "category": "others",
+          "size": "60*60*40cm",
+          "customizable": false
+        },
+        {
+          "id": "PHO-8003",
+          "name": "PHO-8003",
+          "image": "/images/others/PHO-8003.jpg",
+          "category": "others",
+          "size": "143*43*39cm",
+          "customizable": false
+        }
       ]
     }
   ]

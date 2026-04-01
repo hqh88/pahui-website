@@ -27,12 +27,14 @@ const allProducts = collections.flatMap(c => c.products);
 
     <!-- Product Grid -->
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      {allProducts.map((product) => (
+      {allProducts.map((product: any) => (
         <ProductCard
           id={product.id}
           name={product.name}
           image={product.image}
           category={product.category}
+          size={product.size}
+          customizable={product.customizable}
         />
       ))}
     </div>

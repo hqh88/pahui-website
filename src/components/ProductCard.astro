@@ -4,9 +4,11 @@ interface Props {
   name: string;
   image: string;
   category: string;
+  size?: string;
+  customizable?: boolean;
 }
 
-const { id, name, image, category } = Astro.props;
+const { id, name, image, category, size, customizable } = Astro.props;
 ---
 
 <a href={`/products/${id}`} class="group block">
@@ -19,5 +21,10 @@ const { id, name, image, category } = Astro.props;
     />
   </div>
   <h3 class="text-sm font-medium text-text group-hover:text-primary transition-colors">{name}</h3>
-  <p class="text-xs text-text-light mt-1 capitalize">{category.replace(/-/g, ' ')}</p>
+  {size && size !== 'Standard' && (
+    <p class="text-xs text-text-light mt-1">{size.split(' / ')[0].replace(/\*/g, ' × ')}</p>
+  )}
+  {customizable && (
+    <p class="text-xs text-primary mt-0.5">Customizable</p>
+  )}
 </a>
