@@ -1,0 +1,117 @@
+---
+import productsData from '../data/products.json';
+const collections = productsData.collections;
+const currentPath = Astro.url.pathname;
+---
+
+<!-- Announcement Bar -->
+<div class="bg-primary text-white text-center py-2 text-sm">
+  <p>Premium Furniture Collection - Quality & Style for Your Home</p>
+</div>
+
+<header class="bg-white border-b border-border sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4">
+    <!-- Logo -->
+    <div class="flex justify-center py-4">
+      <a href="/">
+        <img src="/images/logo.png" alt="PA HUI Furniture" class="h-16 object-contain" />
+      </a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="flex justify-center items-center gap-1 pb-3 text-sm relative" id="main-nav">
+      <a href="/" class:list={["nav-link", { active: currentPath === "/" }]}>Home</a>
+      <a href="/collections" class:list={["nav-link", { active: currentPath === "/collections" }]}>Shop All</a>
+
+      <!-- Furniture Dropdown -->
+      <div class="relative group">
+        <button class="nav-link flex items-center gap-1">
+          Furniture
+          <svg class="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div class="absolute left-0 top-full mt-0 w-48 bg-white border border-border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+          {collections.map((col) => (
+            <a href={`/collections/${col.slug}`} class="block px-4 py-2 text-sm text-text hover:bg-primary-light transition-colors">
+              {col.name}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <a href="/contact" class:list={["nav-link", { active: currentPath === "/contact" }]}>Contact Us</a>
+      <a href="/about" class:list={["nav-link", { active: currentPath === "/about" }]}>About</a>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button id="mobile-menu-btn" class="md:hidden absolute top-6 right-4 z-50" aria-label="Toggle menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu" class="fixed inset-0 bg-white z-[100] transform translate-x-full transition-transform md:hidden">
+  <div class="p-6">
+    <button id="mobile-menu-close" class="absolute top-6 right-6" aria-label="Close menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+    <nav class="mt-12 flex flex-col gap-4">
+      <a href="/" class="text-lg font-medium py-2 border-b border-border">Home</a>
+      <a href="/collections" class="text-lg font-medium py-2 border-b border-border">Shop All</a>
+      {collections.map((col) => (
+        <a href={`/collections/${col.slug}`} class="text-base py-2 pl-4 border-b border-border text-text-light">
+          {col.name}
+        </a>
+      ))}
+      <a href="/contact" class="text-lg font-medium py-2 border-b border-border">Contact Us</a>
+      <a href="/about" class="text-lg font-medium py-2 border-b border-border">About</a>
+    </nav>
+  </div>
+</div>
+
+<style>
+  @reference "../styles/global.css";
+
+  .nav-link {
+    @apply px-3 py-2 text-text hover:text-primary transition-colors relative;
+  }
+  .nav-link.active {
+    @apply text-primary font-medium;
+  }
+  .nav-link.active::after {
+    content: '';
+    @apply absolute bottom-0 left-3 right-3 h-0.5 bg-primary;
+  }
+  @media (max-width: 767px) {
+    #main-nav {
+      display: none;
+    }
+    #mobile-menu-btn {
+      display: block;
+    }
+  }
+  @media (min-width: 768px) {
+    #mobile-menu-btn {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const closeBtn = document.getElementById('mobile-menu-close');
+
+  btn?.addEventListener('click', () => {
+    menu?.classList.remove('translate-x-full');
+  });
+  closeBtn?.addEventListener('click', () => {
+    menu?.classList.add('translate-x-full');
+  });
+</script>

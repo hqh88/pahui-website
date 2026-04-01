@@ -1,0 +1,23 @@
+---
+interface Props {
+  id: string;
+  name: string;
+  image: string;
+  category: string;
+}
+
+const { id, name, image, category } = Astro.props;
+---
+
+<a href={`/products/${id}`} class="group block">
+  <div class="aspect-square bg-bg-alt rounded-lg overflow-hidden mb-3">
+    <img
+      src={image}
+      alt={name}
+      class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+      loading="lazy"
+    />
+  </div>
+  <h3 class="text-sm font-medium text-text group-hover:text-primary transition-colors">{name}</h3>
+  <p class="text-xs text-text-light mt-1 capitalize">{category.replace(/-/g, ' ')}</p>
+</a>

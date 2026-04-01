@@ -1,0 +1,40 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import productsData from '../../data/products.json';
+
+const collections = productsData.collections;
+const allProducts = collections.flatMap(c => c.products);
+---
+
+<Layout title="All Products - PA HUI Furniture">
+  <section class="max-w-7xl mx-auto px-4 py-12">
+    <h1 class="font-heading text-3xl font-semibold mb-2">All Products</h1>
+    <p class="text-text-light text-sm mb-8">{allProducts.length} products</p>
+
+    <!-- Category Filter -->
+    <div class="flex flex-wrap gap-2 mb-8">
+      <a href="/collections" class="px-4 py-2 bg-primary text-white text-sm rounded-full">All</a>
+      {collections.map((col) => (
+        <a
+          href={`/collections/${col.slug}`}
+          class="px-4 py-2 bg-bg-alt text-text-light text-sm rounded-full hover:bg-primary hover:text-white transition-colors"
+        >
+          {col.name}
+        </a>
+      ))}
+    </div>
+
+    <!-- Product Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {allProducts.map((product) => (
+        <ProductCard
+          id={product.id}
+          name={product.name}
+          image={product.image}
+          category={product.category}
+        />
+      ))}
+    </div>
+  </section>
+</Layout>

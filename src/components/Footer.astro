@@ -1,0 +1,41 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-white border-t border-border mt-16">
+  <div class="max-w-7xl mx-auto px-4 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Quick Links -->
+      <div>
+        <h3 class="font-heading text-lg font-semibold mb-4">Quick Links</h3>
+        <ul class="space-y-2 text-sm text-text-light">
+          <li><a href="/collections" class="hover:text-primary transition-colors">Shop All</a></li>
+          <li><a href="/contact" class="hover:text-primary transition-colors">Contact Us</a></li>
+          <li><a href="/about" class="hover:text-primary transition-colors">About Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div>
+        <h3 class="font-heading text-lg font-semibold mb-4">Contact</h3>
+        <ul class="space-y-2 text-sm text-text-light">
+          <li>
+            <a href="mailto:info@pahui.com" class="hover:text-primary transition-colors">info@pahui.com</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Brand -->
+      <div class="text-center md:text-right">
+        <a href="/">
+          <img src="/images/logo.png" alt="PA HUI Furniture" class="h-12 object-contain inline-block mb-4" />
+        </a>
+        <p class="text-sm text-text-light">Premium Furniture Collection</p>
+      </div>
+    </div>
+
+    <div class="border-t border-border mt-8 pt-6 text-center text-sm text-text-light">
+      <p>&copy; {year} PA HUI Furniture. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
