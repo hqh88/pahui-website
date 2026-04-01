@@ -94,7 +94,9 @@ const related = collection.products
             </svg>
           </button>
 
-          <div id="price-panel" class="hidden pb-6">
+          <div id="price-panel" class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-in-out">
+           <div class="overflow-hidden">
+            <div class="pb-6">
             <p class="text-text-light text-center mb-2">
               Most of our furniture pieces offer multiple size, fabric, and configuration options, which can affect pricing.
             </p>
@@ -132,6 +134,8 @@ const related = collection.products
                 </button>
               </div>
             </form>
+            </div>
+           </div>
           </div>
         </div>
       </div>
@@ -164,16 +168,24 @@ const related = collection.products
   const chevron = document.getElementById('price-chevron');
 
   toggle?.addEventListener('click', () => {
-    const isOpen = !panel?.classList.contains('hidden');
-    panel?.classList.toggle('hidden');
-    chevron?.classList.toggle('rotate-180');
+    const isOpen = panel?.classList.contains('grid-rows-[1fr]');
+    if (isOpen) {
+      panel?.classList.remove('grid-rows-[1fr]');
+      panel?.classList.add('grid-rows-[0fr]');
+      chevron?.classList.remove('rotate-180');
+    } else {
+      panel?.classList.remove('grid-rows-[0fr]');
+      panel?.classList.add('grid-rows-[1fr]');
+      chevron?.classList.add('rotate-180');
+    }
   });
 
   document.getElementById('price-form')?.addEventListener('submit', (e) => {
     e.preventDefault();
     alert('Thank you! We will get back to you with a personalized quote soon.');
     (e.target as HTMLFormElement).reset();
-    panel?.classList.add('hidden');
+    panel?.classList.remove('grid-rows-[1fr]');
+    panel?.classList.add('grid-rows-[0fr]');
     chevron?.classList.remove('rotate-180');
   });
 </script>
