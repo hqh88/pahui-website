@@ -102,20 +102,72 @@ const collections = productsData.collections;
     </div>
   </section>
 
-  <!-- Info Banner -->
-  <section class="bg-primary-light py-16">
-    <div class="max-w-3xl mx-auto text-center px-4">
-      <h2 class="font-heading text-2xl md:text-3xl font-semibold mb-4">Quality Craftsmanship</h2>
-      <p class="text-text-light mb-6 leading-relaxed">
-        Every piece in our collection is carefully selected for its quality, design, and durability.
-        We believe your home deserves furniture that combines beauty with lasting comfort.
-      </p>
-      <a
-        href="/about"
-        class="inline-block px-8 py-3 bg-primary text-white hover:bg-primary-dark transition-colors text-sm font-medium tracking-wide"
-      >
-        Learn More
-      </a>
+  <!-- Slideshow -->
+  <section class="relative overflow-hidden" id="slideshow">
+    <div class="relative h-[50vh] min-h-[400px]">
+      <!-- Slides -->
+      <div class="slide absolute inset-0 transition-opacity duration-700 opacity-100" data-slide="0">
+        <img src="/images/hero/slide-1.jpg" alt="Custom Design" class="absolute inset-0 w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-black/30"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="bg-white/90 px-10 py-8 max-w-xl text-center rounded">
+            <h2 class="font-heading text-2xl md:text-3xl font-semibold mb-3">Custom Design Services</h2>
+            <p class="text-text-light leading-relaxed">
+              We offer personalized design consultations to help you find the perfect pieces for your space.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="slide absolute inset-0 transition-opacity duration-700 opacity-0" data-slide="1">
+        <img src="/images/hero/slide-2.jpg" alt="Quality Craftsmanship" class="absolute inset-0 w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-black/30"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="bg-white/90 px-10 py-8 max-w-xl text-center rounded">
+            <h2 class="font-heading text-2xl md:text-3xl font-semibold mb-3">Quality Craftsmanship</h2>
+            <p class="text-text-light leading-relaxed">
+              Every piece is carefully selected for quality, design, and durability to ensure lasting comfort.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="flex items-center justify-center gap-4 py-4 bg-white">
+      <button id="slide-prev" class="text-text-light hover:text-text text-xl" aria-label="Previous slide">&lsaquo;</button>
+      <button class="slide-dot text-sm font-medium text-text" data-goto="0">1</button>
+      <button class="slide-dot text-sm text-text-light" data-goto="1">2</button>
+      <button id="slide-next" class="text-text-light hover:text-text text-xl" aria-label="Next slide">&rsaquo;</button>
     </div>
   </section>
 </Layout>
+
+<script>
+  let current = 0;
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.slide-dot');
+  const total = slides.length;
+
+  function goTo(index: number) {
+    slides[current].classList.remove('opacity-100');
+    slides[current].classList.add('opacity-0');
+    dots[current].classList.remove('text-text', 'font-medium');
+    dots[current].classList.add('text-text-light');
+
+    current = (index + total) % total;
+
+    slides[current].classList.remove('opacity-0');
+    slides[current].classList.add('opacity-100');
+    dots[current].classList.remove('text-text-light');
+    dots[current].classList.add('text-text', 'font-medium');
+  }
+
+  document.getElementById('slide-prev')?.addEventListener('click', () => goTo(current - 1));
+  document.getElementById('slide-next')?.addEventListener('click', () => goTo(current + 1));
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => goTo(Number(dot.getAttribute('data-goto'))));
+  });
+
+  // Auto-advance every 5 seconds
+  setInterval(() => goTo(current + 1), 5000);
+</script>
