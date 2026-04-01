@@ -32,17 +32,22 @@ const collections = productsData.collections;
   <section class="max-w-7xl mx-auto px-4 py-16">
     <h2 class="font-heading text-2xl md:text-3xl font-semibold text-center mb-12">Shop by Collection</h2>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-      {collections.map((col) => (
-        <a href={`/collections/${col.slug}`} class="group text-center">
+      {[
+        { name: "Sofas", slug: "sofas", image: "/images/hero/hero-4.jpg" },
+        { name: "Tables", slug: "dining-tables", image: "/images/hero/hero-5.jpg" },
+        { name: "Arm Chairs", slug: "arm-chairs", image: "/images/hero/hero-6.jpg" },
+        { name: "Beds", slug: "beds", image: "/images/hero/hero-7.jpg" },
+      ].map((item) => (
+        <a href={`/collections/${item.slug}`} class="group text-center">
           <div class="aspect-square bg-bg-alt rounded-lg overflow-hidden mb-3">
             <img
-              src={col.image}
-              alt={col.name}
+              src={item.image}
+              alt={item.name}
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
             />
           </div>
-          <h3 class="text-sm font-medium group-hover:text-primary transition-colors">{col.name}</h3>
+          <h3 class="text-sm font-medium group-hover:text-primary transition-colors">{item.name}</h3>
         </a>
       ))}
     </div>
