@@ -1,46 +1,41 @@
-import { createReader } from '@keystatic/core/reader';
-import keystaticConfig from '../../keystatic.config';
-
-export const reader = createReader(process.cwd(), keystaticConfig);
+import siteData from './site.json';
+import homepageData from './homepage.json';
+import aboutData from './about.json';
+import contactData from './contact.json';
 
 export async function getSiteSettings() {
-  return await reader.singletons.site.read();
+  return siteData;
 }
 
 export async function getHomepage() {
-  return await reader.singletons.homepage.read();
+  return homepageData;
 }
 
 export async function getAbout() {
-  return await reader.singletons.about.read();
+  return aboutData;
 }
 
 export async function getContact() {
-  return await reader.singletons.contact.read();
+  return contactData;
 }
 
 export async function getCategories() {
-  const slugs = await reader.collections.categories.list();
-  const categories = await Promise.all(
-    slugs.map(async (dirSlug) => {
-      const cat = await reader.collections.categories.read(dirSlug);
-      return cat ? { ...cat, slug: dirSlug } : null;
-    })
-  );
-  return categories
-    .filter((c): c is NonNullable<typeof c> => c !== null)
-    .sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0));
+  const categoryModules = import.meta.glob('./categories/*/index.json', { eager: true }) as Record<string, { default: any }>;
+  const categories = Object.entries(categoryModules).map(([path, mod]) => {
+    const slug = path.split('/')[2]; // ./categories/{slug}/index.json
+    const data = mod.default || mod;
+    return { ...data, slug };
+  });
+  return categories.sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0));
 }
 
 export async function getProducts() {
-  const slugs = await reader.collections.products.list();
-  const products = await Promise.all(
-    slugs.map(async (slug) => {
-      const product = await reader.collections.products.read(slug);
-      return product ? { ...product, id: slug } : null;
-    })
-  );
-  return products.filter((p): p is NonNullable<typeof p> => p !== null);
+  const productModules = import.meta.glob('./products/*/index.json', { eager: true }) as Record<string, { default: any }>;
+  return Object.entries(productModules).map(([path, mod]) => {
+    const id = path.split('/')[2]; // ./products/{id}/index.json
+    const data = mod.default || mod;
+    return { ...data, id };
+  });
 }
 
 /** Returns data in the same shape as the old products.json for backward compatibility */

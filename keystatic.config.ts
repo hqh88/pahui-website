@@ -1,6 +1,6 @@
 import { config, collection, singleton, fields } from '@keystatic/core';
 
-const isProd = import.meta.env.PROD;
+const isProd = typeof import.meta.env !== 'undefined' ? import.meta.env.PROD : false;
 
 export default config({
   storage: isProd
@@ -41,9 +41,10 @@ export default config({
       path: 'src/data/homepage',
       format: { data: 'json' },
       schema: {
-        heroImage: fields.text({
-          label: 'Hero Image Path',
-          description: 'Path to the hero background image (e.g. /images/hero/hero-1.jpeg)',
+        heroImage: fields.image({
+          label: 'Hero Background Image',
+          directory: 'public/images',
+          publicPath: '/images/',
         }),
         heroTitle: fields.text({ label: 'Hero Title' }),
         heroSubtitle: fields.text({ label: 'Hero Subtitle' }),
@@ -54,7 +55,11 @@ export default config({
           fields.object({
             name: fields.text({ label: 'Name' }),
             slug: fields.text({ label: 'Slug (URL path)' }),
-            image: fields.text({ label: 'Image Path' }),
+            image: fields.image({
+              label: 'Collection Image',
+              directory: 'public/images',
+              publicPath: '/images/',
+            }),
           }),
           {
             label: 'Featured Collections (shown on homepage)',
@@ -64,7 +69,11 @@ export default config({
 
         slides: fields.array(
           fields.object({
-            image: fields.text({ label: 'Background Image Path' }),
+            image: fields.image({
+              label: 'Slide Background Image',
+              directory: 'public/images',
+              publicPath: '/images/',
+            }),
             title: fields.text({ label: 'Title' }),
             description: fields.text({
               label: 'Description',
@@ -84,8 +93,10 @@ export default config({
       path: 'src/data/about',
       format: { data: 'json' },
       schema: {
-        storyImage: fields.text({
-          label: 'Story Section Image Path',
+        storyImage: fields.image({
+          label: 'Story Section Image',
+          directory: 'public/images',
+          publicPath: '/images/',
         }),
         storyTitle: fields.text({ label: 'Story Section Title' }),
         storyParagraphs: fields.array(fields.text({ label: 'Paragraph', multiline: true }), {
@@ -131,9 +142,10 @@ export default config({
           description: 'Used in URLs, e.g. "sofas", "dining-tables"',
           validation: { isRequired: true },
         }),
-        image: fields.text({
-          label: 'Category Image Path',
-          description: 'e.g. /images/hero/hero-4.jpg',
+        image: fields.image({
+          label: 'Category Image',
+          directory: 'public/images/categories',
+          publicPath: '/images/categories/',
         }),
         sortOrder: fields.integer({
           label: 'Sort Order',
@@ -157,9 +169,10 @@ export default config({
           label: 'Product Name',
           validation: { isRequired: true },
         }),
-        image: fields.text({
-          label: 'Product Image Path',
-          description: 'e.g. /images/sofas/1.PHS-1001.jpg',
+        image: fields.image({
+          label: 'Product Image',
+          directory: 'public/images/products',
+          publicPath: '/images/products/',
         }),
         category: fields.text({
           label: 'Category Slug',
