@@ -1,4 +1,8 @@
 ---
+import { getSiteSettings } from '../data/reader';
+
+const site = await getSiteSettings();
+const { phone, emails, address, footerTagline } = site!;
 const year = new Date().getFullYear();
 ---
 
@@ -21,16 +25,19 @@ const year = new Date().getFullYear();
         <ul class="space-y-2 text-sm text-text-light">
           <li>
             <span class="font-medium text-text">Phone:</span>
-            <a href="tel:+8613702340231" class="hover:text-primary transition-colors">+86 137-0234-0231</a>
+            <a href={`tel:${phone.replace(/[^+\d]/g, '')}`} class="hover:text-primary transition-colors">{phone}</a>
           </li>
           <li>
             <span class="font-medium text-text">Email:</span><br />
-            <a href="mailto:carlos@pahui-furniture.com" class="hover:text-primary transition-colors">carlos@pahui-furniture.com</a><br />
-            <a href="mailto:jennie@pahui-furniture.com" class="hover:text-primary transition-colors">jennie@pahui-furniture.com</a>
+            {emails.map((email) => (
+              <Fragment>
+                <a href={`mailto:${email}`} class="hover:text-primary transition-colors">{email}</a><br />
+              </Fragment>
+            ))}
           </li>
           <li>
             <span class="font-medium text-text">Address:</span><br />
-            Chenshan Industrial Zone, Heshan, Jiangmen, China
+            {address}
           </li>
         </ul>
       </div>
@@ -40,7 +47,7 @@ const year = new Date().getFullYear();
         <a href="/">
           <img src="/images/logo.png" alt="PA HUI Furniture" class="h-12 object-contain inline-block mb-4" />
         </a>
-        <p class="text-sm text-text-light">Premium Furniture Collection</p>
+        <p class="text-sm text-text-light">{footerTagline}</p>
       </div>
     </div>
 

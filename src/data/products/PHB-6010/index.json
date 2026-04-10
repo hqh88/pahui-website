@@ -1,0 +1,8 @@
+{
+  "id": "PHB-6010",
+  "name": "PHB-6010 Bed",
+  "image": "/images/beds/PHB-6010.png",
+  "category": "beds",
+  "size": "240*206*93cm",
+  "customizable": false
+}

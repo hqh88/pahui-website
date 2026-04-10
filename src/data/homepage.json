@@ -1,0 +1,25 @@
+{
+  "heroImage": "/images/hero/hero-1.jpeg",
+  "heroTitle": "PA HUI Furniture",
+  "heroSubtitle": "Premium Quality Furniture for Your Home",
+  "heroButtonText": "Shop Now",
+  "heroButtonLink": "/collections",
+  "featuredCollections": [
+    { "name": "Sofas", "slug": "sofas", "image": "/images/hero/hero-4.jpg" },
+    { "name": "Tables", "slug": "dining-tables", "image": "/images/hero/hero-5.jpg" },
+    { "name": "Arm Chairs", "slug": "arm-chairs", "image": "/images/hero/hero-6.jpg" },
+    { "name": "Beds", "slug": "beds", "image": "/images/hero/hero-7.jpg" }
+  ],
+  "slides": [
+    {
+      "image": "/images/hero/slide-1.jpg",
+      "title": "Custom Design Services",
+      "description": "We offer personalized design consultations to help you find the perfect pieces for your space."
+    },
+    {
+      "image": "/images/hero/slide-2.jpg",
+      "title": "Quality Craftsmanship",
+      "description": "Every piece is carefully selected for quality, design, and durability to ensure lasting comfort."
+    }
+  ]
+}

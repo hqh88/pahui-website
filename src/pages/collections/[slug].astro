@@ -1,17 +1,20 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import ProductCard from '../../components/ProductCard.astro';
-import productsData from '../../data/products.json';
+import { getCollectionsWithProducts } from '../../data/reader';
 
-export function getStaticPaths() {
-  return productsData.collections.map((col) => ({
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const collections = await getCollectionsWithProducts();
+  return collections.map((col) => ({
     params: { slug: col.slug },
     props: { collection: col },
   }));
 }
 
 const { collection } = Astro.props;
-const collections = productsData.collections;
+const collections = await getCollectionsWithProducts();
 ---
 
 <Layout title={`${collection.name} - PA HUI Furniture`}>

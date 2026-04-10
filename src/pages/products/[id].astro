@@ -1,11 +1,14 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import ProductCard from '../../components/ProductCard.astro';
-import productsData from '../../data/products.json';
+import { getCollectionsWithProducts } from '../../data/reader';
 
-export function getStaticPaths() {
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const collections = await getCollectionsWithProducts();
   const paths: any[] = [];
-  productsData.collections.forEach((col) => {
+  collections.forEach((col) => {
     col.products.forEach((product) => {
       paths.push({
         params: { id: product.id },

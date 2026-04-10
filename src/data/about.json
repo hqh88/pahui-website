@@ -1,0 +1,22 @@
+{
+  "storyImage": "/images/hero/hero-3.jpg",
+  "storyTitle": "Our Story",
+  "storyParagraphs": [
+    "PA HUI Furniture is dedicated to bringing premium quality furniture to homes. Our curated collection features pieces that blend timeless design with modern comfort.",
+    "We work directly with skilled craftspeople to ensure every piece meets our high standards of quality, durability, and aesthetic appeal."
+  ],
+  "values": [
+    {
+      "title": "Quality",
+      "description": "Premium materials and expert craftsmanship in every piece"
+    },
+    {
+      "title": "Design",
+      "description": "Timeless aesthetics that complement any home"
+    },
+    {
+      "title": "Service",
+      "description": "Personalized attention from selection to delivery"
+    }
+  ]
+}

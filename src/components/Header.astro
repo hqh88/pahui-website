@@ -1,12 +1,14 @@
 ---
-import productsData from '../data/products.json';
-const collections = productsData.collections;
+import { getCollectionsWithProducts, getSiteSettings } from '../data/reader';
+
+const collections = await getCollectionsWithProducts();
+const site = await getSiteSettings();
 const currentPath = Astro.url.pathname;
 ---
 
 <!-- Announcement Bar -->
 <div class="bg-primary text-white text-center py-2 text-sm">
-  <p>Premium Furniture Collection - Quality & Style for Your Home</p>
+  <p>{site!.announcementBar}</p>
 </div>
 
 <header class="bg-white border-b border-border sticky top-0 z-50">

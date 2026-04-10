@@ -1,9 +1,11 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import ProductCard from '../../components/ProductCard.astro';
-import productsData from '../../data/products.json';
+import { getCollectionsWithProducts } from '../../data/reader';
 
-const collections = productsData.collections;
+export const prerender = true;
+
+const collections = await getCollectionsWithProducts();
 const allProducts = collections.flatMap(c => c.products);
 ---
 

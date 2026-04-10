@@ -1,5 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getAbout } from '../data/reader';
+
+export const prerender = true;
+
+const about = await getAbout();
+const { storyImage, storyTitle, storyParagraphs, values } = about!;
 ---
 
 <Layout title="About Us - PA HUI Furniture">
@@ -9,37 +15,26 @@ import Layout from '../layouts/Layout.astro';
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
       <div>
         <img
-          src="/images/hero/hero-3.jpg"
+          src={storyImage}
           alt="About PA HUI"
           class="rounded-lg w-full"
         />
       </div>
       <div>
-        <h2 class="font-heading text-xl font-semibold mb-4">Our Story</h2>
-        <p class="text-text-light leading-relaxed mb-4">
-          PA HUI Furniture is dedicated to bringing premium quality furniture to homes.
-          Our curated collection features pieces that blend timeless design with modern comfort.
-        </p>
-        <p class="text-text-light leading-relaxed">
-          We work directly with skilled craftspeople to ensure every piece meets our high standards
-          of quality, durability, and aesthetic appeal.
-        </p>
+        <h2 class="font-heading text-xl font-semibold mb-4">{storyTitle}</h2>
+        {storyParagraphs.map((p, i) => (
+          <p class:list={["text-text-light leading-relaxed", { "mb-4": i < storyParagraphs.length - 1 }]}>{p}</p>
+        ))}
       </div>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-      <div class="p-6 bg-primary-light rounded-lg">
-        <div class="text-3xl font-heading font-bold text-primary mb-2">Quality</div>
-        <p class="text-text-light text-sm">Premium materials and expert craftsmanship in every piece</p>
-      </div>
-      <div class="p-6 bg-primary-light rounded-lg">
-        <div class="text-3xl font-heading font-bold text-primary mb-2">Design</div>
-        <p class="text-text-light text-sm">Timeless aesthetics that complement any home</p>
-      </div>
-      <div class="p-6 bg-primary-light rounded-lg">
-        <div class="text-3xl font-heading font-bold text-primary mb-2">Service</div>
-        <p class="text-text-light text-sm">Personalized attention from selection to delivery</p>
-      </div>
+      {values.map((v) => (
+        <div class="p-6 bg-primary-light rounded-lg">
+          <div class="text-3xl font-heading font-bold text-primary mb-2">{v.title}</div>
+          <p class="text-text-light text-sm">{v.description}</p>
+        </div>
+      ))}
     </div>
   </section>
 </Layout>

@@ -1,0 +1,8 @@
+{
+  "id": "PHB-6003",
+  "name": "PHB-6003 Bed",
+  "image": "/images/beds/PHB-6003.jpg",
+  "category": "beds",
+  "size": "384*223*105cm",
+  "customizable": false
+}
