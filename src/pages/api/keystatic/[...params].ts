@@ -6,6 +6,28 @@ import { parseString } from 'set-cookie-parser';
 export const prerender = false;
 
 export const ALL: import('astro').APIRoute = async (context) => {
+  // TODO: 临时调试，确认后删除
+  const reqUrl = new URL(context.request.url);
+  if (reqUrl.pathname.endsWith('/oauth/callback') && reqUrl.searchParams.has('debug')) {
+    const code = reqUrl.searchParams.get('code') || '';
+    const tokenUrl = new URL('https://github.com/login/oauth/access_token');
+    tokenUrl.searchParams.set('client_id', env.KEYSTATIC_GITHUB_CLIENT_ID as string);
+    tokenUrl.searchParams.set('client_secret', env.KEYSTATIC_GITHUB_CLIENT_SECRET as string);
+    tokenUrl.searchParams.set('code', code);
+    const tokenRes = await fetch(tokenUrl, {
+      method: 'POST',
+      headers: { Accept: 'application/json' },
+    });
+    const tokenBody = await tokenRes.text();
+    return new Response(JSON.stringify({
+      tokenStatus: tokenRes.status,
+      tokenBody: JSON.parse(tokenBody),
+      clientId: env.KEYSTATIC_GITHUB_CLIENT_ID,
+      secretLength: (env.KEYSTATIC_GITHUB_CLIENT_SECRET as string)?.length,
+      secretLast4: (env.KEYSTATIC_GITHUB_CLIENT_SECRET as string)?.slice(-4),
+    }, null, 2), { status: 200, headers: { 'Content-Type': 'application/json' } });
+  }
+
   const handler = makeGenericAPIRouteHandler(
     {
       config: keystaticConfig,
