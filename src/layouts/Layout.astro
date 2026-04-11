@@ -51,8 +51,9 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site || 'https://furnitur
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <!-- Umami Analytics -->
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="UMAMI_WEBSITE_ID"></script>
+    {seo.analyticsEnabled && seo.analyticsWebsiteId && (
+      <script defer src={seo.analyticsScriptUrl || 'https://cloud.umami.is/script.js'} data-website-id={seo.analyticsWebsiteId}></script>
+    )}
   </head>
   <body class="bg-bg text-text font-sans min-h-screen flex flex-col">
     <Header />

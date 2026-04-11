@@ -167,6 +167,21 @@ const labels = {
     en: 'Google Search Console verification meta tag content',
     zh: 'Google Search Console 验证 meta 标签的 content 值',
   },
+  analyticsEnabled: { en: 'Enable Analytics', zh: '启用访客统计' },
+  analyticsEnabledDesc: {
+    en: 'Turn on/off Umami visitor tracking',
+    zh: '开启/关闭 Umami 访客追踪',
+  },
+  analyticsWebsiteId: { en: 'Analytics Website ID', zh: '统计站点 ID' },
+  analyticsWebsiteIdDesc: {
+    en: 'Umami website ID (from cloud.umami.is dashboard)',
+    zh: 'Umami 站点 ID（从 cloud.umami.is 后台获取）',
+  },
+  analyticsScriptUrl: { en: 'Analytics Script URL', zh: '统计脚本地址' },
+  analyticsScriptUrlDesc: {
+    en: 'Umami tracking script URL (default: https://cloud.umami.is/script.js)',
+    zh: 'Umami 追踪脚本地址（默认：https://cloud.umami.is/script.js）',
+  },
 
   // Per-page SEO fields
   seoTitle: { en: 'SEO Title', zh: 'SEO 标题' },

@@ -63,6 +63,19 @@ export function createKeystaticConfig(locale: Locale = 'en') {
             label: t('seoGoogleVerification', locale),
             description: t('seoGoogleVerificationDesc', locale),
           }),
+          analyticsEnabled: fields.checkbox({
+            label: t('analyticsEnabled', locale),
+            description: t('analyticsEnabledDesc', locale),
+            defaultValue: true,
+          }),
+          analyticsWebsiteId: fields.text({
+            label: t('analyticsWebsiteId', locale),
+            description: t('analyticsWebsiteIdDesc', locale),
+          }),
+          analyticsScriptUrl: fields.text({
+            label: t('analyticsScriptUrl', locale),
+            description: t('analyticsScriptUrlDesc', locale),
+          }),
         },
       }),
 

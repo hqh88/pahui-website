@@ -3,5 +3,8 @@
   "defaultDescription": "PA HUI - Premium Furniture Collection. Quality sofas, dining tables, beds and more. Wholesale and custom manufacturing from Jiangmen, China.",
   "defaultOgImage": null,
   "keywords": "furniture, wholesale furniture, China furniture, sofas, dining tables, beds, arm chairs, PA HUI, Jiangmen",
-  "googleVerification": ""
+  "googleVerification": "",
+  "analyticsEnabled": true,
+  "analyticsWebsiteId": "b9a37d1b-9658-48d7-9301-70574e512957",
+  "analyticsScriptUrl": "https://cloud.umami.is/script.js"
 }
