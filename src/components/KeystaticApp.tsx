@@ -15,7 +15,7 @@ function getInitialLocale(): Locale {
 
 const toolbarStyle: React.CSSProperties = {
   position: 'fixed',
-  bottom: 16,
+  bottom: 56,
   left: 16,
   zIndex: 9999,
   display: 'flex',
