@@ -1,0 +1,128 @@
+---
+import { getCollectionsWithProducts } from '../../data/reader';
+
+export const prerender = true;
+
+const collections = await getCollectionsWithProducts();
+const allProducts = collections.flatMap(c => c.products.map(p => ({ ...p, categoryName: c.name })));
+const categories = collections.map(c => ({ slug: c.slug, name: c.name, count: c.products.length }));
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Products - PA HUI Admin</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font-family: system-ui, -apple-system, sans-serif; background: #1a1a2e; color: #e0e0e0; min-height: 100vh; }
+      .topbar {
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 10px 20px; background: #16213e; border-bottom: 1px solid rgba(255,255,255,0.08);
+      }
+      .topbar h1 { font-size: 15px; font-weight: 600; }
+      .topbar-links { display: flex; gap: 8px; }
+      .topbar a {
+        color: #8b8fa3; text-decoration: none; font-size: 12px; padding: 4px 12px;
+        border: 1px solid rgba(255,255,255,0.12); border-radius: 4px; transition: all 0.15s;
+      }
+      .topbar a:hover { color: #fff; border-color: rgba(255,255,255,0.3); }
+      .toolbar {
+        display: flex; align-items: center; gap: 10px; padding: 12px 20px;
+        border-bottom: 1px solid rgba(255,255,255,0.06); flex-wrap: wrap;
+      }
+      .search {
+        padding: 6px 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.12);
+        background: rgba(255,255,255,0.05); color: #e0e0e0; font-size: 13px; width: 220px;
+      }
+      .search:focus { outline: none; border-color: rgba(255,255,255,0.3); }
+      .filter-btn {
+        padding: 4px 12px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.1);
+        background: transparent; color: #8b8fa3; font-size: 12px; cursor: pointer; transition: all 0.15s;
+      }
+      .filter-btn:hover, .filter-btn.active { background: #6c63ff; color: #fff; border-color: #6c63ff; }
+      .count { color: #8b8fa3; font-size: 12px; margin-left: auto; }
+      .grid {
+        display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 12px; padding: 16px 20px;
+      }
+      .card {
+        display: block; background: rgba(255,255,255,0.04); border-radius: 8px;
+        overflow: hidden; text-decoration: none; color: inherit; transition: all 0.15s; border: 1px solid transparent;
+      }
+      .card:hover { border-color: rgba(255,255,255,0.15); transform: translateY(-2px); }
+      .card-img {
+        aspect-ratio: 1; background: #252540; display: flex; align-items: center; justify-content: center; overflow: hidden;
+      }
+      .card-img img { width: 100%; height: 100%; object-fit: contain; padding: 8px; }
+      .card-info { padding: 8px 10px; }
+      .card-name { font-size: 12px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      .card-meta { font-size: 11px; color: #8b8fa3; margin-top: 2px; }
+    </style>
+  </head>
+  <body>
+    <div class="topbar">
+      <h1>Products ({allProducts.length})</h1>
+      <div class="topbar-links">
+        <a href="/keystatic">← Admin</a>
+        <a href="/keystatic/branch/main/collection/products">List View</a>
+      </div>
+    </div>
+    <div class="toolbar">
+      <input type="text" class="search" id="search" placeholder="Search products..." />
+      <button class="filter-btn active" data-filter="all">All</button>
+      {categories.map(c => (
+        <button class="filter-btn" data-filter={c.slug}>{c.name} ({c.count})</button>
+      ))}
+      <span class="count" id="count">{allProducts.length} items</span>
+    </div>
+    <div class="grid" id="grid">
+      {allProducts.map(p => (
+        <a class="card" href={`/keystatic/branch/main/collection/products/item/${p.id}`} data-name={p.name.toLowerCase()} data-id={p.id.toLowerCase()} data-category={p.category}>
+          <div class="card-img">
+            {p.image ? <img src={p.image} alt={p.name} loading="lazy" /> : <span style="color:#555;">No image</span>}
+          </div>
+          <div class="card-info">
+            <div class="card-name">{p.name}</div>
+            <div class="card-meta">{p.id} · {p.categoryName}</div>
+          </div>
+        </a>
+      ))}
+    </div>
+    <script>
+      const cards = Array.from(document.querySelectorAll('.card'));
+      const searchInput = document.getElementById('search');
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const countEl = document.getElementById('count');
+      let activeFilter = 'all';
+
+      function update() {
+        const q = (searchInput as HTMLInputElement).value.toLowerCase();
+        let visible = 0;
+        cards.forEach(card => {
+          const el = card as HTMLElement;
+          const name = el.dataset.name || '';
+          const id = el.dataset.id || '';
+          const cat = el.dataset.category || '';
+          const matchFilter = activeFilter === 'all' || cat === activeFilter;
+          const matchSearch = !q || name.includes(q) || id.includes(q);
+          const show = matchFilter && matchSearch;
+          el.style.display = show ? '' : 'none';
+          if (show) visible++;
+        });
+        countEl!.textContent = `${visible} items`;
+      }
+
+      searchInput?.addEventListener('input', update);
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          activeFilter = (btn as HTMLElement).dataset.filter || 'all';
+          update();
+        });
+      });
+    </script>
+  </body>
+</html>
