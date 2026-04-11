@@ -6,6 +6,5 @@
   "googleVerification": "",
   "analyticsEnabled": true,
   "analyticsWebsiteId": "b9a37d1b-9658-48d7-9301-70574e512957",
-  "analyticsScriptUrl": "https://cloud.umami.is/script.js",
-  "analyticsShareUrl": ""
+  "analyticsScriptUrl": "https://cloud.umami.is/script.js"
 }
