@@ -177,10 +177,19 @@ export function createKeystaticConfig(locale: Locale = 'en') {
             directory: 'public/images/products',
             publicPath: '/images/products/',
           }),
-          category: fields.text({
-            label: t('categorySlug', locale),
-            description: t('categorySlugDesc', locale),
-            validation: { isRequired: true },
+          category: fields.select({
+            label: t('category', locale),
+            options: [
+              { label: t('catSofas', locale), value: 'sofas' },
+              { label: t('catArmChairs', locale), value: 'arm-chairs' },
+              { label: t('catCoffeeTables', locale), value: 'coffee-tables' },
+              { label: t('catDiningTables', locale), value: 'dining-tables' },
+              { label: t('catDiningChairs', locale), value: 'dining-chairs' },
+              { label: t('catBeds', locale), value: 'beds' },
+              { label: t('catBedsideTables', locale), value: 'bedside-tables' },
+              { label: t('catOthers', locale), value: 'others' },
+            ],
+            defaultValue: 'sofas',
           }),
           size: fields.text({
             label: t('dimensions', locale),
