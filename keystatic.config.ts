@@ -25,7 +25,6 @@ function seoFields(locale: Locale) {
 
 export function createKeystaticConfig(locale: Locale = 'en') {
   return config({
-    locale: locale === 'zh' ? 'zh-CN' : undefined,
     storage: isProd
       ? {
           kind: 'github',
