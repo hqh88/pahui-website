@@ -32,12 +32,12 @@ export default function KeystaticApp() {
         onClick={toggleLocale}
         style={{
           position: 'fixed',
-          top: 12,
-          right: 12,
+          bottom: 16,
+          left: 16,
           zIndex: 9999,
           padding: '6px 14px',
           borderRadius: 6,
-          border: '1px solid rgba(255,255,255,0.2)',
+          border: '1px solid rgba(255,255,255,0.15)',
           background: 'rgba(30,30,30,0.85)',
           color: '#fff',
           fontSize: 13,
