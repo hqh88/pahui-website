@@ -182,6 +182,11 @@ const labels = {
     en: 'Umami tracking script URL (default: https://cloud.umami.is/script.js)',
     zh: 'Umami 追踪脚本地址（默认：https://cloud.umami.is/script.js）',
   },
+  analyticsShareUrl: { en: 'Analytics Dashboard URL', zh: '统计仪表盘链接' },
+  analyticsShareUrlDesc: {
+    en: 'Umami share URL for embedded dashboard (enable in Umami → Settings → Share URL)',
+    zh: 'Umami 分享链接，用于嵌入仪表盘（在 Umami → 设置 → Share URL 中开启）',
+  },
 
   // Per-page SEO fields
   seoTitle: { en: 'SEO Title', zh: 'SEO 标题' },

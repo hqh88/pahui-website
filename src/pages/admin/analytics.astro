@@ -1,0 +1,89 @@
+---
+import { getSeo } from '../../data/reader';
+
+export const prerender = true;
+
+const seo = await getSeo();
+const shareUrl = (seo as any).analyticsShareUrl;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Analytics - PA HUI Admin</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body {
+        font-family: system-ui, -apple-system, sans-serif;
+        background: #1a1a2e;
+        color: #e0e0e0;
+        min-height: 100vh;
+      }
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 24px;
+        background: #16213e;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+      }
+      .topbar h1 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .topbar a {
+        color: #8b8fa3;
+        text-decoration: none;
+        font-size: 13px;
+        padding: 6px 14px;
+        border: 1px solid rgba(255,255,255,0.15);
+        border-radius: 6px;
+        transition: all 0.2s;
+      }
+      .topbar a:hover { color: #fff; border-color: rgba(255,255,255,0.3); }
+      .empty {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: calc(100vh - 49px);
+        gap: 16px;
+      }
+      .empty p { color: #8b8fa3; font-size: 14px; max-width: 480px; text-align: center; line-height: 1.6; }
+      .empty code {
+        background: rgba(255,255,255,0.08);
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 13px;
+      }
+      iframe {
+        width: 100%;
+        height: calc(100vh - 49px);
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topbar">
+      <h1>Analytics Dashboard</h1>
+      <a href="/keystatic">← Back to Admin</a>
+    </div>
+    {shareUrl ? (
+      <iframe src={shareUrl} title="Analytics Dashboard"></iframe>
+    ) : (
+      <div class="empty">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#8b8fa3" stroke-width="1.5">
+          <path d="M18 20V10M12 20V4M6 20v-6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <p>
+          Analytics dashboard not configured yet.<br/><br/>
+          To enable: go to <code>cloud.umami.is</code> → your website → <strong>Settings</strong> → <strong>Share URL</strong> → Enable,
+          then paste the share URL into <strong>SEO Settings → Analytics Dashboard URL</strong> in the admin panel.
+        </p>
+        <a href="/keystatic/branch/main/singleton/seo" style="color:#6c63ff;">Go to SEO Settings</a>
+      </div>
+    )}
+  </body>
+</html>
