@@ -1,10 +1,9 @@
 ---
-import { getSeo } from '../../data/reader';
+import { env } from 'cloudflare:workers';
 
-export const prerender = true;
+export const prerender = false;
 
-const seo = await getSeo();
-const shareUrl = (seo as any).analyticsShareUrl;
+const shareUrl = (env.ANALYTICS_SHARE_URL as string) || '';
 ---
 <!doctype html>
 <html lang="en">
@@ -79,10 +78,10 @@ const shareUrl = (seo as any).analyticsShareUrl;
         </svg>
         <p>
           Analytics dashboard not configured yet.<br/><br/>
-          To enable: go to <code>cloud.umami.is</code> → your website → <strong>Settings</strong> → <strong>Share URL</strong> → Enable,
-          then paste the share URL into <strong>SEO Settings → Analytics Dashboard URL</strong> in the admin panel.
+          Set the <code>ANALYTICS_SHARE_URL</code> environment variable in Cloudflare Workers,
+          then visit this page again.
         </p>
-        <a href="/keystatic/branch/main/singleton/seo" style="color:#6c63ff;">Go to SEO Settings</a>
+        <a href="/keystatic" style="color:#6c63ff;">Back to Admin</a>
       </div>
     )}
   </body>

@@ -76,10 +76,6 @@ export function createKeystaticConfig(locale: Locale = 'en') {
             label: t('analyticsScriptUrl', locale),
             description: t('analyticsScriptUrlDesc', locale),
           }),
-          analyticsShareUrl: fields.text({
-            label: t('analyticsShareUrl', locale),
-            description: t('analyticsShareUrlDesc', locale),
-          }),
         },
       }),
 
