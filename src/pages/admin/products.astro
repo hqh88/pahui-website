@@ -1,7 +1,7 @@
 ---
 import { getCollectionsWithProducts } from '../../data/reader';
 
-export const prerender = true;
+export const prerender = false;
 
 const collections = await getCollectionsWithProducts();
 const allProducts = collections.flatMap(c => c.products.map(p => ({ ...p, categoryName: c.name })));
