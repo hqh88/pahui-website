@@ -265,7 +265,7 @@ export function createKeystaticConfig(locale: Locale = 'en') {
         path: 'src/data/categories/*/',
         slugField: 'slug',
         format: { data: 'json' },
-        columns: ['name', 'slug', 'sortOrder'],
+        columns: ['name', 'sortOrder'],
         schema: {
           name: fields.text({
             label: t('categoryName', locale),
