@@ -27,13 +27,18 @@ export function createKeystaticConfig(locale: Locale = 'en') {
             label: t('footerTagline', locale),
             description: t('footerTaglineDesc', locale),
           }),
-          phone: fields.text({ label: t('phoneNumber', locale) }),
+          phone: fields.text({
+            label: t('phoneNumber', locale),
+            description: t('phoneNumberDesc', locale),
+          }),
           emails: fields.array(fields.text({ label: t('email', locale) }), {
             label: t('emailAddresses', locale),
+            description: t('emailAddressesDesc', locale),
             itemLabel: (props) => props.value || t('newEmail', locale),
           }),
           address: fields.text({
             label: t('address', locale),
+            description: t('addressDesc', locale),
             multiline: true,
           }),
         },
@@ -49,15 +54,35 @@ export function createKeystaticConfig(locale: Locale = 'en') {
             directory: 'public/images',
             publicPath: '/images/',
           }),
-          heroTitle: fields.text({ label: t('heroTitle', locale) }),
-          heroSubtitle: fields.text({ label: t('heroSubtitle', locale) }),
-          heroButtonText: fields.text({ label: t('heroButtonText', locale) }),
-          heroButtonLink: fields.text({ label: t('heroButtonLink', locale) }),
+          heroTitle: fields.text({
+            label: t('heroTitle', locale),
+            description: t('heroTitleDesc', locale),
+            validation: { isRequired: true },
+          }),
+          heroSubtitle: fields.text({
+            label: t('heroSubtitle', locale),
+            description: t('heroSubtitleDesc', locale),
+          }),
+          heroButtonText: fields.text({
+            label: t('heroButtonText', locale),
+            description: t('heroButtonTextDesc', locale),
+          }),
+          heroButtonLink: fields.text({
+            label: t('heroButtonLink', locale),
+            description: t('heroButtonLinkDesc', locale),
+          }),
 
           featuredCollections: fields.array(
             fields.object({
-              name: fields.text({ label: t('name', locale) }),
-              slug: fields.text({ label: t('slugUrlPath', locale) }),
+              name: fields.text({
+                label: t('name', locale),
+                validation: { isRequired: true },
+              }),
+              slug: fields.text({
+                label: t('slugUrlPath', locale),
+                description: t('slugUrlPathDesc', locale),
+                validation: { isRequired: true },
+              }),
               image: fields.image({
                 label: t('collectionImage', locale),
                 directory: 'public/images',
@@ -77,7 +102,10 @@ export function createKeystaticConfig(locale: Locale = 'en') {
                 directory: 'public/images',
                 publicPath: '/images/',
               }),
-              title: fields.text({ label: t('title', locale) }),
+              title: fields.text({
+                label: t('title', locale),
+                validation: { isRequired: true },
+              }),
               description: fields.text({
                 label: t('description', locale),
                 multiline: true,
@@ -101,15 +129,32 @@ export function createKeystaticConfig(locale: Locale = 'en') {
             directory: 'public/images',
             publicPath: '/images/',
           }),
-          storyTitle: fields.text({ label: t('storySectionTitle', locale) }),
-          storyParagraphs: fields.array(fields.text({ label: t('paragraph', locale), multiline: true }), {
-            label: t('storyParagraphs', locale),
-            itemLabel: (props) => (props.value || '').slice(0, 50) + '...',
+          storyTitle: fields.text({
+            label: t('storySectionTitle', locale),
+            validation: { isRequired: true },
           }),
+          storyParagraphs: fields.array(
+            fields.text({
+              label: t('paragraph', locale),
+              description: t('paragraphDesc', locale),
+              multiline: true,
+            }),
+            {
+              label: t('storyParagraphs', locale),
+              itemLabel: (props) => (props.value || '').slice(0, 40) + (props.value && props.value.length > 40 ? '...' : ''),
+            }
+          ),
           values: fields.array(
             fields.object({
-              title: fields.text({ label: t('title', locale) }),
-              description: fields.text({ label: t('description', locale) }),
+              title: fields.text({
+                label: t('valueTitle', locale),
+                description: t('valueTitleDesc', locale),
+                validation: { isRequired: true },
+              }),
+              description: fields.text({
+                label: t('valueDescription', locale),
+                description: t('valueDescriptionDesc', locale),
+              }),
             }),
             {
               label: t('valuesCards', locale),
@@ -124,10 +169,25 @@ export function createKeystaticConfig(locale: Locale = 'en') {
         path: 'src/data/contact',
         format: { data: 'json' },
         schema: {
-          heading: fields.text({ label: t('pageHeading', locale) }),
-          subheading: fields.text({ label: t('subheading', locale) }),
-          submitButtonText: fields.text({ label: t('submitButtonText', locale) }),
-          successMessage: fields.text({ label: t('successMessage', locale) }),
+          heading: fields.text({
+            label: t('pageHeading', locale),
+            description: t('pageHeadingDesc', locale),
+            validation: { isRequired: true },
+          }),
+          subheading: fields.text({
+            label: t('subheading', locale),
+            description: t('subheadingDesc', locale),
+          }),
+          submitButtonText: fields.text({
+            label: t('submitButtonText', locale),
+            description: t('submitButtonTextDesc', locale),
+            validation: { isRequired: true },
+          }),
+          successMessage: fields.text({
+            label: t('successMessage', locale),
+            description: t('successMessageDesc', locale),
+            validation: { isRequired: true },
+          }),
         },
       }),
     },
@@ -139,7 +199,10 @@ export function createKeystaticConfig(locale: Locale = 'en') {
         slugField: 'slug',
         format: { data: 'json' },
         schema: {
-          name: fields.text({ label: t('categoryName', locale), validation: { isRequired: true } }),
+          name: fields.text({
+            label: t('categoryName', locale),
+            validation: { isRequired: true },
+          }),
           slug: fields.text({
             label: t('urlSlug', locale),
             description: t('urlSlugDesc', locale),
@@ -147,6 +210,7 @@ export function createKeystaticConfig(locale: Locale = 'en') {
           }),
           image: fields.image({
             label: t('categoryImage', locale),
+            description: t('categoryImageDesc', locale),
             directory: 'public/images/categories',
             publicPath: '/images/categories/',
           }),
@@ -166,16 +230,13 @@ export function createKeystaticConfig(locale: Locale = 'en') {
         schema: {
           id: fields.text({
             label: t('productIdSku', locale),
+            description: t('productIdSkuDesc', locale),
             validation: { isRequired: true },
           }),
           name: fields.text({
             label: t('productName', locale),
+            description: t('productNameDesc', locale),
             validation: { isRequired: true },
-          }),
-          image: fields.image({
-            label: t('productImage', locale),
-            directory: 'public/images/products',
-            publicPath: '/images/products/',
           }),
           category: fields.select({
             label: t('category', locale),
@@ -190,6 +251,12 @@ export function createKeystaticConfig(locale: Locale = 'en') {
               { label: t('catOthers', locale), value: 'others' },
             ],
             defaultValue: 'sofas',
+          }),
+          image: fields.image({
+            label: t('productImage', locale),
+            description: t('productImageDesc', locale),
+            directory: 'public/images/products',
+            publicPath: '/images/products/',
           }),
           size: fields.text({
             label: t('dimensions', locale),
