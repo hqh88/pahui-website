@@ -1,193 +1,200 @@
 import { config, collection, singleton, fields } from '@keystatic/core';
+import { t, type Locale } from './src/i18n/keystatic-labels';
 
 const isProd = typeof import.meta.env !== 'undefined' ? import.meta.env.PROD : false;
 
-export default config({
-  storage: isProd
-    ? {
-        kind: 'github',
-        repo: 'hqh88/pahui-website',
-      }
-    : { kind: 'local' },
+export function createKeystaticConfig(locale: Locale = 'en') {
+  return config({
+    locale: locale === 'zh' ? 'zh-CN' : undefined,
+    storage: isProd
+      ? {
+          kind: 'github',
+          repo: 'hqh88/pahui-website',
+        }
+      : { kind: 'local' },
 
-  singletons: {
-    site: singleton({
-      label: 'Site Settings',
-      path: 'src/data/site',
-      format: { data: 'json' },
-      schema: {
-        announcementBar: fields.text({
-          label: 'Announcement Bar Text',
-          description: 'Text displayed in the top bar across all pages',
-        }),
-        footerTagline: fields.text({
-          label: 'Footer Tagline',
-          description: 'Short tagline in the footer',
-        }),
-        phone: fields.text({ label: 'Phone Number' }),
-        emails: fields.array(fields.text({ label: 'Email' }), {
-          label: 'Email Addresses',
-          itemLabel: (props) => props.value || 'New Email',
-        }),
-        address: fields.text({
-          label: 'Address',
-          multiline: true,
-        }),
-      },
-    }),
-
-    homepage: singleton({
-      label: 'Homepage',
-      path: 'src/data/homepage',
-      format: { data: 'json' },
-      schema: {
-        heroImage: fields.image({
-          label: 'Hero Background Image',
-          directory: 'public/images',
-          publicPath: '/images/',
-        }),
-        heroTitle: fields.text({ label: 'Hero Title' }),
-        heroSubtitle: fields.text({ label: 'Hero Subtitle' }),
-        heroButtonText: fields.text({ label: 'Hero Button Text' }),
-        heroButtonLink: fields.text({ label: 'Hero Button Link' }),
-
-        featuredCollections: fields.array(
-          fields.object({
-            name: fields.text({ label: 'Name' }),
-            slug: fields.text({ label: 'Slug (URL path)' }),
-            image: fields.image({
-              label: 'Collection Image',
-              directory: 'public/images',
-              publicPath: '/images/',
-            }),
+    singletons: {
+      site: singleton({
+        label: t('siteSettings', locale),
+        path: 'src/data/site',
+        format: { data: 'json' },
+        schema: {
+          announcementBar: fields.text({
+            label: t('announcementBarText', locale),
+            description: t('announcementBarDesc', locale),
           }),
-          {
-            label: 'Featured Collections (shown on homepage)',
-            itemLabel: (props) => props.fields.name.value || 'New Collection',
-          }
-        ),
-
-        slides: fields.array(
-          fields.object({
-            image: fields.image({
-              label: 'Slide Background Image',
-              directory: 'public/images',
-              publicPath: '/images/',
-            }),
-            title: fields.text({ label: 'Title' }),
-            description: fields.text({
-              label: 'Description',
-              multiline: true,
-            }),
+          footerTagline: fields.text({
+            label: t('footerTagline', locale),
+            description: t('footerTaglineDesc', locale),
           }),
-          {
-            label: 'Slideshow',
-            itemLabel: (props) => props.fields.title.value || 'New Slide',
-          }
-        ),
-      },
-    }),
-
-    about: singleton({
-      label: 'About Page',
-      path: 'src/data/about',
-      format: { data: 'json' },
-      schema: {
-        storyImage: fields.image({
-          label: 'Story Section Image',
-          directory: 'public/images',
-          publicPath: '/images/',
-        }),
-        storyTitle: fields.text({ label: 'Story Section Title' }),
-        storyParagraphs: fields.array(fields.text({ label: 'Paragraph', multiline: true }), {
-          label: 'Story Paragraphs',
-          itemLabel: (props) => (props.value || '').slice(0, 50) + '...',
-        }),
-        values: fields.array(
-          fields.object({
-            title: fields.text({ label: 'Title' }),
-            description: fields.text({ label: 'Description' }),
+          phone: fields.text({ label: t('phoneNumber', locale) }),
+          emails: fields.array(fields.text({ label: t('email', locale) }), {
+            label: t('emailAddresses', locale),
+            itemLabel: (props) => props.value || t('newEmail', locale),
           }),
-          {
-            label: 'Values (shown as cards)',
-            itemLabel: (props) => props.fields.title.value || 'New Value',
-          }
-        ),
-      },
-    }),
+          address: fields.text({
+            label: t('address', locale),
+            multiline: true,
+          }),
+        },
+      }),
 
-    contact: singleton({
-      label: 'Contact Page',
-      path: 'src/data/contact',
-      format: { data: 'json' },
-      schema: {
-        heading: fields.text({ label: 'Page Heading' }),
-        subheading: fields.text({ label: 'Subheading' }),
-        submitButtonText: fields.text({ label: 'Submit Button Text' }),
-        successMessage: fields.text({ label: 'Success Message' }),
-      },
-    }),
-  },
+      homepage: singleton({
+        label: t('homepage', locale),
+        path: 'src/data/homepage',
+        format: { data: 'json' },
+        schema: {
+          heroImage: fields.image({
+            label: t('heroBackgroundImage', locale),
+            directory: 'public/images',
+            publicPath: '/images/',
+          }),
+          heroTitle: fields.text({ label: t('heroTitle', locale) }),
+          heroSubtitle: fields.text({ label: t('heroSubtitle', locale) }),
+          heroButtonText: fields.text({ label: t('heroButtonText', locale) }),
+          heroButtonLink: fields.text({ label: t('heroButtonLink', locale) }),
 
-  collections: {
-    categories: collection({
-      label: 'Product Categories',
-      path: 'src/data/categories/*/',
-      slugField: 'slug',
-      format: { data: 'json' },
-      schema: {
-        name: fields.text({ label: 'Category Name', validation: { isRequired: true } }),
-        slug: fields.text({
-          label: 'URL Slug',
-          description: 'Used in URLs, e.g. "sofas", "dining-tables"',
-          validation: { isRequired: true },
-        }),
-        image: fields.image({
-          label: 'Category Image',
-          directory: 'public/images/categories',
-          publicPath: '/images/categories/',
-        }),
-        sortOrder: fields.integer({
-          label: 'Sort Order',
-          description: 'Lower numbers appear first',
-          defaultValue: 0,
-        }),
-      },
-    }),
+          featuredCollections: fields.array(
+            fields.object({
+              name: fields.text({ label: t('name', locale) }),
+              slug: fields.text({ label: t('slugUrlPath', locale) }),
+              image: fields.image({
+                label: t('collectionImage', locale),
+                directory: 'public/images',
+                publicPath: '/images/',
+              }),
+            }),
+            {
+              label: t('featuredCollections', locale),
+              itemLabel: (props) => props.fields.name.value || t('newCollection', locale),
+            }
+          ),
 
-    products: collection({
-      label: 'Products',
-      path: 'src/data/products/*/',
-      slugField: 'id',
-      format: { data: 'json' },
-      schema: {
-        id: fields.text({
-          label: 'Product ID / SKU',
-          validation: { isRequired: true },
-        }),
-        name: fields.text({
-          label: 'Product Name',
-          validation: { isRequired: true },
-        }),
-        image: fields.image({
-          label: 'Product Image',
-          directory: 'public/images/products',
-          publicPath: '/images/products/',
-        }),
-        category: fields.text({
-          label: 'Category Slug',
-          description: 'Must match a category slug, e.g. "sofas"',
-          validation: { isRequired: true },
-        }),
-        size: fields.text({
-          label: 'Dimensions',
-          description: 'e.g. 306*105*65cm',
-        }),
-        customizable: fields.checkbox({
-          label: 'Size can be customized',
-          defaultValue: false,
-        }),
-      },
-    }),
-  },
-});
+          slides: fields.array(
+            fields.object({
+              image: fields.image({
+                label: t('slideBackgroundImage', locale),
+                directory: 'public/images',
+                publicPath: '/images/',
+              }),
+              title: fields.text({ label: t('title', locale) }),
+              description: fields.text({
+                label: t('description', locale),
+                multiline: true,
+              }),
+            }),
+            {
+              label: t('slideshow', locale),
+              itemLabel: (props) => props.fields.title.value || t('newSlide', locale),
+            }
+          ),
+        },
+      }),
+
+      about: singleton({
+        label: t('aboutPage', locale),
+        path: 'src/data/about',
+        format: { data: 'json' },
+        schema: {
+          storyImage: fields.image({
+            label: t('storySectionImage', locale),
+            directory: 'public/images',
+            publicPath: '/images/',
+          }),
+          storyTitle: fields.text({ label: t('storySectionTitle', locale) }),
+          storyParagraphs: fields.array(fields.text({ label: t('paragraph', locale), multiline: true }), {
+            label: t('storyParagraphs', locale),
+            itemLabel: (props) => (props.value || '').slice(0, 50) + '...',
+          }),
+          values: fields.array(
+            fields.object({
+              title: fields.text({ label: t('title', locale) }),
+              description: fields.text({ label: t('description', locale) }),
+            }),
+            {
+              label: t('valuesCards', locale),
+              itemLabel: (props) => props.fields.title.value || t('newValue', locale),
+            }
+          ),
+        },
+      }),
+
+      contact: singleton({
+        label: t('contactPage', locale),
+        path: 'src/data/contact',
+        format: { data: 'json' },
+        schema: {
+          heading: fields.text({ label: t('pageHeading', locale) }),
+          subheading: fields.text({ label: t('subheading', locale) }),
+          submitButtonText: fields.text({ label: t('submitButtonText', locale) }),
+          successMessage: fields.text({ label: t('successMessage', locale) }),
+        },
+      }),
+    },
+
+    collections: {
+      categories: collection({
+        label: t('productCategories', locale),
+        path: 'src/data/categories/*/',
+        slugField: 'slug',
+        format: { data: 'json' },
+        schema: {
+          name: fields.text({ label: t('categoryName', locale), validation: { isRequired: true } }),
+          slug: fields.text({
+            label: t('urlSlug', locale),
+            description: t('urlSlugDesc', locale),
+            validation: { isRequired: true },
+          }),
+          image: fields.image({
+            label: t('categoryImage', locale),
+            directory: 'public/images/categories',
+            publicPath: '/images/categories/',
+          }),
+          sortOrder: fields.integer({
+            label: t('sortOrder', locale),
+            description: t('sortOrderDesc', locale),
+            defaultValue: 0,
+          }),
+        },
+      }),
+
+      products: collection({
+        label: t('products', locale),
+        path: 'src/data/products/*/',
+        slugField: 'id',
+        format: { data: 'json' },
+        schema: {
+          id: fields.text({
+            label: t('productIdSku', locale),
+            validation: { isRequired: true },
+          }),
+          name: fields.text({
+            label: t('productName', locale),
+            validation: { isRequired: true },
+          }),
+          image: fields.image({
+            label: t('productImage', locale),
+            directory: 'public/images/products',
+            publicPath: '/images/products/',
+          }),
+          category: fields.text({
+            label: t('categorySlug', locale),
+            description: t('categorySlugDesc', locale),
+            validation: { isRequired: true },
+          }),
+          size: fields.text({
+            label: t('dimensions', locale),
+            description: t('dimensionsDesc', locale),
+          }),
+          customizable: fields.checkbox({
+            label: t('sizeCustomizable', locale),
+            defaultValue: false,
+          }),
+        },
+      }),
+    },
+  });
+}
+
+// Default export for API route (server-side, locale not needed)
+export default createKeystaticConfig('en');
