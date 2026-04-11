@@ -6,6 +6,11 @@ import { parseString } from 'set-cookie-parser';
 export const prerender = false;
 
 export const ALL: import('astro').APIRoute = async (context) => {
+  // TODO: 调试用，确认后删除
+  console.log('[Keystatic Debug] KEYSTATIC_GITHUB_CLIENT_ID:', env.KEYSTATIC_GITHUB_CLIENT_ID ? env.KEYSTATIC_GITHUB_CLIENT_ID : 'NOT SET');
+  console.log('[Keystatic Debug] KEYSTATIC_GITHUB_CLIENT_SECRET:', env.KEYSTATIC_GITHUB_CLIENT_SECRET ? '***' + (env.KEYSTATIC_GITHUB_CLIENT_SECRET as string).slice(-4) : 'NOT SET');
+  console.log('[Keystatic Debug] KEYSTATIC_SECRET:', env.KEYSTATIC_SECRET ? '***' + (env.KEYSTATIC_SECRET as string).slice(-4) : 'NOT SET');
+
   const handler = makeGenericAPIRouteHandler(
     {
       config: keystaticConfig,
