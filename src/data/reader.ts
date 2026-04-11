@@ -2,6 +2,11 @@ import siteData from './site.json';
 import homepageData from './homepage.json';
 import aboutData from './about.json';
 import contactData from './contact.json';
+import seoData from './seo.json';
+
+export async function getSeo() {
+  return seoData;
+}
 
 export async function getSiteSettings() {
   return siteData;

@@ -17,7 +17,10 @@ const { collection } = Astro.props;
 const collections = await getCollectionsWithProducts();
 ---
 
-<Layout title={`${collection.name} - PA HUI Furniture`}>
+<Layout
+  title={`${collection.name} - PA HUI Furniture`}
+  description={`Browse our ${collection.name.toLowerCase()} collection. ${collection.products.length} premium products available.`}
+>
   <section class="max-w-7xl mx-auto px-4 py-12">
     <h1 class="font-heading text-3xl font-semibold mb-2">{collection.name}</h1>
     <p class="text-text-light text-sm mb-8">{collection.products.length} products</p>

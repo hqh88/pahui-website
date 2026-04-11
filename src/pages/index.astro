@@ -5,10 +5,14 @@ import { getHomepage } from '../data/reader';
 export const prerender = true;
 
 const homepage = await getHomepage();
-const { heroImage, heroTitle, heroSubtitle, heroButtonText, heroButtonLink, featuredCollections, slides } = homepage!;
+const { heroImage, heroTitle, heroSubtitle, heroButtonText, heroButtonLink, featuredCollections, slides, seoTitle, seoDescription, seoOgImage } = homepage as any;
 ---
 
-<Layout title="PA HUI Furniture - Premium Furniture Collection">
+<Layout
+  title={seoTitle || 'PA HUI Furniture - Premium Furniture Collection'}
+  description={seoDescription}
+  ogImage={seoOgImage}
+>
   <!-- Hero Section -->
   <section class="relative h-[70vh] min-h-[500px] overflow-hidden">
     <img

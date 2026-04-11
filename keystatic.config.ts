@@ -3,6 +3,26 @@ import { t, type Locale } from './src/i18n/keystatic-labels';
 
 const isProd = typeof import.meta.env !== 'undefined' ? import.meta.env.PROD : false;
 
+function seoFields(locale: Locale) {
+  return {
+    seoTitle: fields.text({
+      label: t('seoTitle', locale),
+      description: t('seoTitleDesc', locale),
+    }),
+    seoDescription: fields.text({
+      label: t('seoDescription', locale),
+      description: t('seoDescriptionDesc', locale),
+      multiline: true,
+    }),
+    seoOgImage: fields.image({
+      label: t('seoOgImage', locale),
+      description: t('seoOgImageDesc', locale),
+      directory: 'public/images/seo',
+      publicPath: '/images/seo/',
+    }),
+  };
+}
+
 export function createKeystaticConfig(locale: Locale = 'en') {
   return config({
     locale: locale === 'zh' ? 'zh-CN' : undefined,
@@ -14,6 +34,38 @@ export function createKeystaticConfig(locale: Locale = 'en') {
       : { kind: 'local' },
 
     singletons: {
+      seo: singleton({
+        label: t('seo', locale),
+        path: 'src/data/seo',
+        format: { data: 'json' },
+        schema: {
+          siteName: fields.text({
+            label: t('seoSiteName', locale),
+            description: t('seoSiteNameDesc', locale),
+            validation: { isRequired: true },
+          }),
+          defaultDescription: fields.text({
+            label: t('seoDefaultDescription', locale),
+            description: t('seoDefaultDescriptionDesc', locale),
+            multiline: true,
+          }),
+          defaultOgImage: fields.image({
+            label: t('seoDefaultOgImage', locale),
+            description: t('seoDefaultOgImageDesc', locale),
+            directory: 'public/images/seo',
+            publicPath: '/images/seo/',
+          }),
+          keywords: fields.text({
+            label: t('seoKeywords', locale),
+            description: t('seoKeywordsDesc', locale),
+          }),
+          googleVerification: fields.text({
+            label: t('seoGoogleVerification', locale),
+            description: t('seoGoogleVerificationDesc', locale),
+          }),
+        },
+      }),
+
       site: singleton({
         label: t('siteSettings', locale),
         path: 'src/data/site',
@@ -49,6 +101,7 @@ export function createKeystaticConfig(locale: Locale = 'en') {
         path: 'src/data/homepage',
         format: { data: 'json' },
         schema: {
+          ...seoFields(locale),
           heroImage: fields.image({
             label: t('heroBackgroundImage', locale),
             directory: 'public/images',
@@ -124,6 +177,7 @@ export function createKeystaticConfig(locale: Locale = 'en') {
         path: 'src/data/about',
         format: { data: 'json' },
         schema: {
+          ...seoFields(locale),
           storyImage: fields.image({
             label: t('storySectionImage', locale),
             directory: 'public/images',
@@ -169,6 +223,7 @@ export function createKeystaticConfig(locale: Locale = 'en') {
         path: 'src/data/contact',
         format: { data: 'json' },
         schema: {
+          ...seoFields(locale),
           heading: fields.text({
             label: t('pageHeading', locale),
             description: t('pageHeadingDesc', locale),

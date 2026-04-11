@@ -139,6 +139,51 @@ const labels = {
     zh: '例如 306*105*65cm 或 "Standard"',
   },
   sizeCustomizable: { en: 'Size can be customized', zh: '尺寸可定制' },
+
+  // SEO
+  seo: { en: 'SEO Settings', zh: 'SEO 设置' },
+  seoSiteName: { en: 'Site Name', zh: '站点名称' },
+  seoSiteNameDesc: {
+    en: 'Used in page titles, e.g. "PA HUI Furniture"',
+    zh: '用于页面标题，例如 "PA HUI Furniture"',
+  },
+  seoDefaultDescription: { en: 'Default Description', zh: '默认描述' },
+  seoDefaultDescriptionDesc: {
+    en: 'Fallback meta description for pages without their own (50-160 characters)',
+    zh: '页面未设置独立描述时使用的默认描述（建议 50-160 字符）',
+  },
+  seoDefaultOgImage: { en: 'Default Share Image', zh: '默认分享图片' },
+  seoDefaultOgImageDesc: {
+    en: 'Default image for social media sharing (recommended 1200×630px)',
+    zh: '社交媒体分享时的默认图片（建议 1200×630px）',
+  },
+  seoKeywords: { en: 'Keywords', zh: '关键词' },
+  seoKeywordsDesc: {
+    en: 'Comma-separated keywords for search engines',
+    zh: '用逗号分隔的搜索引擎关键词',
+  },
+  seoGoogleVerification: { en: 'Google Verification Code', zh: 'Google 验证码' },
+  seoGoogleVerificationDesc: {
+    en: 'Google Search Console verification meta tag content',
+    zh: 'Google Search Console 验证 meta 标签的 content 值',
+  },
+
+  // Per-page SEO fields
+  seoTitle: { en: 'SEO Title', zh: 'SEO 标题' },
+  seoTitleDesc: {
+    en: 'Custom page title for search engines (leave empty to use default)',
+    zh: '自定义搜索引擎页面标题（留空使用默认值）',
+  },
+  seoDescription: { en: 'SEO Description', zh: 'SEO 描述' },
+  seoDescriptionDesc: {
+    en: 'Custom meta description for this page (50-160 characters)',
+    zh: '自定义页面描述（建议 50-160 字符）',
+  },
+  seoOgImage: { en: 'Share Image', zh: '分享图片' },
+  seoOgImageDesc: {
+    en: 'Custom image for social media sharing (overrides default)',
+    zh: '自定义社交媒体分享图片（覆盖默认值）',
+  },
 } as const;
 
 export type LabelKey = keyof typeof labels;

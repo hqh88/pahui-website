@@ -5,10 +5,14 @@ import { getContact } from '../data/reader';
 export const prerender = true;
 
 const contact = await getContact();
-const { heading, subheading, submitButtonText, successMessage } = contact!;
+const { heading, subheading, submitButtonText, successMessage, seoTitle, seoDescription, seoOgImage } = contact as any;
 ---
 
-<Layout title="Contact Us - PA HUI Furniture">
+<Layout
+  title={seoTitle || 'Contact Us - PA HUI Furniture'}
+  description={seoDescription}
+  ogImage={seoOgImage}
+>
   <section class="max-w-2xl mx-auto px-4 py-12" data-success-message={successMessage}>
     <h1 class="font-heading text-3xl font-semibold text-center mb-4">{heading}</h1>
     <p class="text-text-light text-center mb-10">
@@ -76,6 +80,8 @@ const { heading, subheading, submitButtonText, successMessage } = contact!;
     e.preventDefault();
     const section = document.querySelector('[data-success-message]') as HTMLElement;
     const msg = section?.dataset.successMessage || 'Thank you!';
+    // Umami: track contact form submission
+    (window as any).umami?.track('contact-form-submit');
     alert(msg);
     (e.target as HTMLFormElement).reset();
   });

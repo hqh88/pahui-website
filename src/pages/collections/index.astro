@@ -9,7 +9,10 @@ const collections = await getCollectionsWithProducts();
 const allProducts = collections.flatMap(c => c.products);
 ---
 
-<Layout title="All Products - PA HUI Furniture">
+<Layout
+  title="All Products - PA HUI Furniture"
+  description="Browse our complete premium furniture collection. Sofas, dining tables, beds, arm chairs and more."
+>
   <section class="max-w-7xl mx-auto px-4 py-12">
     <h1 class="font-heading text-3xl font-semibold mb-2">All Products</h1>
     <p class="text-text-light text-sm mb-8">{allProducts.length} products</p>

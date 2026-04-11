@@ -27,7 +27,11 @@ const related = collection.products
   .slice(0, 4);
 ---
 
-<Layout title={`${product.name} - PA HUI Furniture`}>
+<Layout
+  title={`${product.name} - PA HUI Furniture`}
+  description={`${product.name} - ${product.category.replace(/-/g, ' ')}${product.size ? `, ${product.size}` : ''}. Premium furniture from PA HUI.`}
+  ogImage={product.image}
+>
   <section class="max-w-7xl mx-auto px-4 py-12">
     <!-- Breadcrumb -->
     <nav class="text-sm text-text-light mb-8">
@@ -183,8 +187,16 @@ const related = collection.products
     }
   });
 
+  // Umami: track product view
+  const productMeta = document.querySelector('input[name="product"]') as HTMLInputElement;
+  if (productMeta) {
+    (window as any).umami?.track('product-view', { product: productMeta.value });
+  }
+
   document.getElementById('price-form')?.addEventListener('submit', (e) => {
     e.preventDefault();
+    // Umami: track price request
+    (window as any).umami?.track('price-request', { product: productMeta?.value });
     alert('Thank you! We will get back to you with a personalized quote soon.');
     (e.target as HTMLFormElement).reset();
     panel?.classList.remove('grid-rows-[1fr]');

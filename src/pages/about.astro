@@ -5,10 +5,14 @@ import { getAbout } from '../data/reader';
 export const prerender = true;
 
 const about = await getAbout();
-const { storyImage, storyTitle, storyParagraphs, values } = about!;
+const { storyImage, storyTitle, storyParagraphs, values, seoTitle, seoDescription, seoOgImage } = about as any;
 ---
 
-<Layout title="About Us - PA HUI Furniture">
+<Layout
+  title={seoTitle || 'About Us - PA HUI Furniture'}
+  description={seoDescription}
+  ogImage={seoOgImage}
+>
   <section class="max-w-4xl mx-auto px-4 py-12">
     <h1 class="font-heading text-3xl font-semibold text-center mb-10">About PA HUI Furniture</h1>
 
