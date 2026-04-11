@@ -184,6 +184,9 @@ const related = collection.products
       panel?.classList.remove('grid-rows-[0fr]');
       panel?.classList.add('grid-rows-[1fr]');
       chevron?.classList.add('rotate-180');
+      // Umami: track price inquiry panel opened — strong buying intent signal
+      const meta = document.querySelector('input[name="product"]') as HTMLInputElement;
+      (window as any).umami?.track('price-inquiry-open', { product: meta?.value });
     }
   });
 

@@ -25,13 +25,13 @@ const year = new Date().getFullYear();
         <ul class="space-y-2 text-sm text-text-light">
           <li>
             <span class="font-medium text-text">Phone:</span>
-            <a href={`tel:${phone.replace(/[^+\d]/g, '')}`} class="hover:text-primary transition-colors">{phone}</a>
+            <a href={`tel:${phone.replace(/[^+\d]/g, '')}`} class="hover:text-primary transition-colors" data-umami-event="phone-click" data-umami-event-source="footer">{phone}</a>
           </li>
           <li>
             <span class="font-medium text-text">Email:</span><br />
             {emails.map((email) => (
               <Fragment>
-                <a href={`mailto:${email}`} class="hover:text-primary transition-colors">{email}</a><br />
+                <a href={`mailto:${email}`} class="hover:text-primary transition-colors" data-umami-event="email-click" data-umami-event-source="footer">{email}</a><br />
               </Fragment>
             ))}
           </li>

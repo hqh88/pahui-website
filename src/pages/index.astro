@@ -28,6 +28,7 @@ const { heroImage, heroTitle, heroSubtitle, heroButtonText, heroButtonLink, feat
         <a
           href={heroButtonLink}
           class="inline-block px-8 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-white transition-colors text-sm font-medium tracking-wide"
+          data-umami-event="hero-cta-click"
         >
           {heroButtonText}
         </a>
@@ -40,7 +41,7 @@ const { heroImage, heroTitle, heroSubtitle, heroButtonText, heroButtonLink, feat
     <h2 class="font-heading text-2xl md:text-3xl font-semibold text-center mb-12">Shop by Collection</h2>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
       {featuredCollections.map((item) => (
-        <a href={`/collections/${item.slug}`} class="group text-center">
+        <a href={`/collections/${item.slug}`} class="group text-center" data-umami-event="collection-click" data-umami-event-collection={item.name}>
           <div class="aspect-square bg-bg-alt rounded-lg overflow-hidden mb-3">
             <img
               src={item.image}

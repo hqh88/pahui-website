@@ -11,7 +11,7 @@ interface Props {
 const { id, name, image, category, size, customizable } = Astro.props;
 ---
 
-<a href={`/products/${id}`} class="group block">
+<a href={`/products/${id}`} class="group block" data-umami-event="product-click" data-umami-event-product={`${name} (${id})`} data-umami-event-category={category}>
   <div class="aspect-square bg-bg-alt rounded-lg overflow-hidden mb-3">
     <img
       src={image}

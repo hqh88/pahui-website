@@ -42,6 +42,7 @@ const collections = await getCollectionsWithProducts();
               ? "bg-primary text-white"
               : "bg-bg-alt text-text-light hover:bg-primary hover:text-white"
           ]}
+          data-umami-event="filter-category" data-umami-event-category={col.name}
         >
           {col.name}
         </a>

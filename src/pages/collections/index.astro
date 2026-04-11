@@ -24,6 +24,7 @@ const allProducts = collections.flatMap(c => c.products);
         <a
           href={`/collections/${col.slug}`}
           class="px-4 py-2 bg-bg-alt text-text-light text-sm rounded-full hover:bg-primary hover:text-white transition-colors"
+          data-umami-event="filter-category" data-umami-event-category={col.name}
         >
           {col.name}
         </a>

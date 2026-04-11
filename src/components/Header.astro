@@ -35,7 +35,7 @@ const currentPath = Astro.url.pathname;
         </button>
         <div class="absolute left-0 top-full mt-0 w-48 bg-white border border-border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
           {collections.map((col) => (
-            <a href={`/collections/${col.slug}`} class="block px-4 py-2 text-sm text-text hover:bg-primary-light transition-colors">
+            <a href={`/collections/${col.slug}`} class="block px-4 py-2 text-sm text-text hover:bg-primary-light transition-colors" data-umami-event="nav-category-click" data-umami-event-category={col.name}>
               {col.name}
             </a>
           ))}
